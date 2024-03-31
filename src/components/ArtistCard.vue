@@ -16,7 +16,11 @@ export default defineComponent({
 <template>
     <div class="artist__card">
         <img :src="artist.imageUrl" alt="artist.name" />
-        <div class="artist__card-content">
+        <div class="artist__card-content-container">
+            <div class="artist__card-content">
+                <h4> {{ artist.name }}</h4>
+                <p> {{ artist.description }}</p>
+            </div>
         </div>
     </div>
 
@@ -28,7 +32,7 @@ export default defineComponent({
 .artist__card {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    position: relative;
     width: 400px;
     height: 250px;
     border-radius: 8px;
@@ -41,10 +45,38 @@ export default defineComponent({
     border-radius: 8px;
 }
 
+.artist__card-content-container {
+    display: flex;
+    position: absolute;
+    max-height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    width: 100%;
+    bottom: 0;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .artist__card-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    text-align: left;
+    padding: 0.5rem;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.artist__card-content h4,
+p {
+    margin: 0;
     padding-top: 0.5rem;
+    text-overflow: ellipsis;
+}
+
+.artist__card-content p {
+    font-size: 0.8rem;
+    color: #FFFFFF85;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 </style>
