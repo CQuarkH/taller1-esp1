@@ -59,15 +59,14 @@ main {
     width: 78vw;
     margin-left: 22vw;
     overflow-y: auto;
-
 }
+
 
 .home__explore-container {
     display: flex;
     width: 100%;
     flex-direction: column;
     gap: 1rem;
-    margin-top: 1rem;
 }
 
 .home__explore-title {
@@ -116,6 +115,8 @@ main {
 
 .home__artist-list {
     display: flex;
+    padding-right: 1rem;
+    gap: 1rem;
 
 
 }

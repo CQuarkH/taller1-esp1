@@ -27,9 +27,10 @@ export default defineComponent({
 <style scoped>
 header {
     display: flex;
-    height: 100px;
+    height: 75px;
     margin-left: 22vw;
     width: 78vw;
+    padding: 0.5rem 0 0.5rem 0;
     justify-content: space-between;
 }
 
