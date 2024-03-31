@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue';
-import NavBar from '../components/NavBar.vue';
-import SearchBar from '../components/SearchBar.vue';
-import TopSongs from '../components/TopSongs.vue';
-import songsData from '../assets/data/songs.json';
+import NavBar from '../../components/NavBar.vue';
+import SearchBar from '../../components/SearchBar.vue';
+import TopSongs from '../../components/TopSongs.vue';
+import songsData from '../../assets/data/songs.json';
 
 const searchTerm = ref('');
 const hasSearched = ref(false);
