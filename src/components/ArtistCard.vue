@@ -8,13 +8,18 @@ export default defineComponent({
             type: Object,
             required: true
         }
-    }
+    },
+  methods: {
+      goToArtist() {
+        this.$router.push({ name: 'artist', params: { id: this.artist.id } })
+      }
+  }
 });
 
 </script>
 
 <template>
-    <div class="artist__card">
+    <div class="artist__card" @click="goToArtist">
         <img :src="artist.imageUrl" alt="artist.name" />
         <div class="artist__card-content-container">
             <div class="artist__card-content">
