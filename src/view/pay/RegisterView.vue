@@ -5,7 +5,44 @@ import NavBar from '../../components/NavBar.vue';
 <template>
   <NavBar />
   <main class="container">
-    <article class="container__body"></article>
+    <article class="container__body">
+      <section class="container__plan">
+        <h1 class="title__plan">Seleccione un plan</h1>
+        <div class="container__plan--card">
+          <div class="card">
+            <h2 class="card__title">Individual</h2>
+            <div class="container__info--card">
+              <small class="card__tempo">Mensual</small>
+              <p class="card__price">CLP $4.500/mes</p>
+              <small class="card__extra">1 mes gratis</small>
+              <button class="card__Button">seleccionar</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title">Individual</h2>
+            <div class="container__info--card">
+              <small class="card__tempo">Mensual</small>
+              <p class="card__price">CLP $4.500/mes</p>
+              <small class="card__extra">1 mes gratis</small>
+              <button class="card__Button">seleccionar</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title">Individual</h2>
+            <div class="container__info--card">
+              <small class="card__tempo">Mensual</small>
+              <p class="card__price">CLP $4.500/mes</p>
+              <small class="card__extra">1 mes gratis</small>
+              <button class="card__Button">seleccionar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container__info"></section>
+    </article>
   </main>
 </template>
 
@@ -34,9 +71,95 @@ import NavBar from '../../components/NavBar.vue';
   margin-left: 22vw;
 
   display: grid;
-  grid-template-rows: 2fr 1fr 2fr;
+  grid-template-rows: 1.2fr 2fr;
+  gap: 3vh;
+
   align-items: center;
   justify-items: center;
   text-justify: auto;
+}
+
+.container__info,
+.container__plan {
+  border-radius: 0.8vw;
+  border: solid 2px rgb(217, 217, 217, 0.3);
+
+  width: 100%;
+  height: 100%;
+}
+
+.container__plan {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  width: 100%;
+  height: 100%;
+}
+
+.title__plan {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  font-size: 1.5vw;
+  width: 100%;
+  height: 100%;
+}
+
+.container__plan--card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.card {
+  width: 70%;
+  height: 85%;
+  border-radius: 0.8vw;
+  border: solid 2px rgb(217, 217, 217, 0.3);
+  text-align: start;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card__title {
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: 700;
+  margin-top: 1vh;
+  padding-bottom: 1vh;
+  border-bottom: solid 0.7vh rgba(255, 255, 255, 0.7);
+  width: 80%;
+}
+
+.card__tempo {
+  text-align: start;
+  font-weight: 500;
+  color: rgb(177, 177, 177);
+}
+
+.card__extra {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.container__info--card {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__tempo,
+.card__extra,
+.card__price {
+  padding: 0;
+  margin: 0;
+}
+
+.card__Button {
+  margin-top: 2vh;
 }
 </style>
