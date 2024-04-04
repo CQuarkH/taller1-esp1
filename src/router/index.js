@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import PromotionView from '../view/pay/PromotionView.vue';
 import HomePage from '../view/HomePage.vue';
-import SearchResults from "../view/search/SearchResults.vue";
-import Artist from "../view/artist/Artist.vue";
+import RegisterView from '../view/pay/RegisterView.vue';
+import SearchResults from '../view/SearchResults.vue';
 
 const routes = [
   {
@@ -16,16 +16,21 @@ const routes = [
     component: PromotionView,
   },
   {
+    path: '/pay/register',
+    name: 'RegisterPay',
+    component: RegisterView,
+  },
+  {
     path: '/searchresults',
     name: 'searchresults',
     component: SearchResults,
-    props: (route) => ({ query: route.query.q })
+    props: (route) => ({ query: route.query.q }),
   },
   {
     path: '/artist/artist/:id',
     name: 'artist',
     component: Artist,
-  }
+  },
 ];
 
 const router = createRouter({
