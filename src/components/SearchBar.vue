@@ -2,7 +2,7 @@
 
   <div class="general-container">
 
-    <div class="tittle-container"> {{titulo}} </div>
+    <h2 class="tittle-container"> {{titulo}} </h2>
 
     <div class="search-container">
       <input
@@ -14,12 +14,28 @@
       >
     </div>
 
+    <div class="icon-container">
+
+      <img class="icon" src="../assets/profile-pic.png" alt="">
+    </div>
+
   </div>
 
 </template>
 
 <style scoped>
+.icon{
+  width: 50px;
+  height: 50px;
+  margin-top: 50%;
+  margin-bottom: 50%;
+  margin-left: 30%;
+  border-radius: 95%;
+}
+
 .tittle-container{
+  width: 50px;
+  height: 50px;
 }
 
 .general-container{
