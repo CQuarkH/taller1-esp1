@@ -32,3 +32,8 @@ Unas ves superado el proceso anterior ejecutas el comando "npm run"'
    rgba(0, 0, 0, 1) 100%
 
    );
+
+### Consideraciones
+
+- Utilicen unidades relativas.
+- No

@@ -31,7 +31,7 @@ export default defineComponent({
 <style scoped>
 .music__card {
   display: flex;
-  width: 280px;
+  width: 210px;
   flex-direction: column;
   padding: 10px;
   border-radius: 8px;
@@ -39,7 +39,7 @@ export default defineComponent({
 
 .music__card img {
   width: 100%;
-  height: 280px;
+  height: 210px;
   object-fit: cover;
   aspect-ratio: square;
   border-radius: 8px;

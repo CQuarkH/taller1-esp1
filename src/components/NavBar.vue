@@ -3,11 +3,7 @@
 <template>
   <nav class="nav">
     <section class="nav__icon">
-      <img
-        class="nav__icon--ufro"
-        src="../assets/icono-ufro-extendido.png"
-        alt=""
-      />
+      <img class="nav__icon--ufro" src="../assets/icono-ufro-extendido.png" alt="" />
     </section>
 
     <section class="nav__option">
@@ -24,7 +20,7 @@
       </a>
 
       <a href="" class="nav__option--icon">
-        <img class="icon" src="../assets/icono-premium.png" />premium
+        <img class="icon" src="../assets/icono-premium.png" />Premium
       </a>
     </section>
 

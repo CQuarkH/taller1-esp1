@@ -26,6 +26,11 @@ const routes = [
     component: SearchResults,
     props: (route) => ({ query: route.query.q }),
   },
+  {
+    path: '/artist/artist/:id',
+    name: 'artist',
+    component: Artist,
+  },
 ];
 
 const router = createRouter({
