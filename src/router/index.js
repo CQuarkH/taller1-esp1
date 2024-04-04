@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import PromotionView from '../view/pay/PromotionView.vue';
 import HomePage from '../view/HomePage.vue';
 import RegisterView from '../view/pay/RegisterView.vue';
-import SearchResults from '../view/SearchResults.vue';
+import SearchResults from '../view/search/SearchResults.vue';
+import Artist from "../view/artist/Artist.vue";
 
 const routes = [
   {

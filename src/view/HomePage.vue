@@ -56,7 +56,7 @@ main {
     display: flex;
     flex-direction: column;
     height: 88vh;
-    width: 78vw;
+    width: 77vw;
     margin-left: 22vw;
     overflow-y: auto;
 }
