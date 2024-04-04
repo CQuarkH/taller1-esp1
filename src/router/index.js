@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import PromotionView from '../view/pay/PromotionView.vue';
 import HomePage from '../view/HomePage.vue';
 import RegisterView from '../view/pay/RegisterView.vue';
-import SearchResults from '../view/SearchResults.vue';
+import ArtistView from '../view/artist/ArtistView.vue';
+import SearchResults from '../components/SearchBar.vue';
 
 const routes = [
   {
@@ -27,9 +28,9 @@ const routes = [
     props: (route) => ({ query: route.query.q }),
   },
   {
-    path: '/artist/artist/:id',
+    path: '/artist/artist',
     name: 'artist',
-    component: Artist,
+    component: ArtistView,
   },
 ];
 
