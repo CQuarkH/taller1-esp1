@@ -29,7 +29,7 @@ header {
     display: flex;
     height: 75px;
     margin-left: 22vw;
-    width: 78vw;
+    width: 77vw;
     padding: 0.5rem 0 0.5rem 0;
     justify-content: space-between;
 }
