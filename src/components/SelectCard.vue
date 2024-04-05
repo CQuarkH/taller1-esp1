@@ -1,16 +1,40 @@
-<script setup>
-import NavBar from '../../components/NavBar.vue';
-import SelectCard from '../../components/SelectCard.vue';
-</script>
+<script setup></script>
 
 <template>
-  <NavBar />
-  <main class="container">
-    <article class="container__body">
-      <SelectCard />
-      <section class="container__info"></section>
-    </article>
-  </main>
+  <section class="container__plan">
+    <h1 class="title__plan">Seleccione un plan</h1>
+    <div class="container__plan--card">
+      <div class="card">
+        <h2 class="card__title">Individual</h2>
+        <div class="container__info--card">
+          <small class="card__tempo">Mensual</small>
+          <p class="card__price">CLP $4.500/mes</p>
+          <small class="card__extra">1 mes gratis</small>
+          <button class="card__Button">seleccionar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card__title">Individual</h2>
+        <div class="container__info--card">
+          <small class="card__tempo">Mensual</small>
+          <p class="card__price">CLP $4.500/mes</p>
+          <small class="card__extra">1 mes gratis</small>
+          <button class="card__Button">seleccionar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card__title">Individual</h2>
+        <div class="container__info--card">
+          <small class="card__tempo">Mensual</small>
+          <p class="card__price">CLP $4.500/mes</p>
+          <small class="card__extra">1 mes gratis</small>
+          <button class="card__Button">seleccionar</button>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <style>
