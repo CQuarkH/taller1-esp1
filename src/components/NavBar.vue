@@ -1,27 +1,35 @@
-<script setup></script>
+<script setup>
+function changeView(router) {
+  router.push({ path: router });
+}
+</script>
 
 <template>
   <nav class="nav">
     <section class="nav__icon">
-      <img class="nav__icon--ufro" src="../assets/icono-ufro-extendido.png" alt="" />
+      <img
+        class="nav__icon--ufro"
+        src="../assets/icono-ufro-extendido.png"
+        alt=""
+      />
     </section>
 
     <section class="nav__option">
-      <a href="" class="nav__option--icon">
+      <router-link to="/" class="nav__option--icon">
         <img class="icon" src="../assets/icono-casa.png" />Inicio
-      </a>
+      </router-link>
 
-      <a href="" class="nav__option--icon">
+      <router-link to="/searchresults" class="nav__option--icon">
         <img class="icon" src="../assets/icono-brujula.png" />Explorar
-      </a>
+      </router-link>
 
-      <a href="" class="nav__option--icon">
-        <img class="icon" src="../assets/icono-libreria.png" />Biblioteca
-      </a>
+      <router-link to="/" class="nav__option--icon">
+        <img class="icon" src="../assets/icono-libreria.png" />Reproducción
+      </router-link>
 
-      <a href="" class="nav__option--icon">
+      <router-link to="/pay/promotion" class="nav__option--icon">
         <img class="icon" src="../assets/icono-premium.png" />Premium
-      </a>
+      </router-link>
     </section>
 
     <section class="nav__play"></section>
