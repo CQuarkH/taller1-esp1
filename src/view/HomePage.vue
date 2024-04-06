@@ -46,12 +46,11 @@ import SearchBar from "../components/SearchBar.vue";
 
 </template>
 
-
 <style scoped>
 svg {
-    width: 1rem;
-    height: 1rem;
-    fill: white;
+  width: 1rem;
+  height: 1rem;
+  fill: white;
 }
 
 main {
@@ -63,63 +62,59 @@ main {
     overflow-y: auto;
 }
 
-
 .home__explore-container {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .home__explore-title {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
 
-    text-align: left;
+  text-align: left;
 }
 
 .home__explore-title h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 2vh;
-    margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2vh;
+  margin-bottom: 0;
 }
 
 .home__explore-title p {
-    font-size: 1rem;
-    font-weight: 400;
-    margin-left: 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 10px;
 }
 
 .home__music-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
 }
 
 .home__music-container h3 {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .home__music-grid {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 }
 
-
 .home__artist-list {
-    display: flex;
-    padding-right: 1rem;
-    gap: 1rem;
-
-
+  display: flex;
+  padding-right: 1rem;
+  gap: 1rem;
 }
 </style>
