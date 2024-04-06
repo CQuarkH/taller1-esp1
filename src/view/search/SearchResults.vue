@@ -1,19 +1,17 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed, watch} from 'vue';
+import { useRoute } from 'vue-router';
 import NavBar from '../../components/NavBar.vue';
 import SearchBar from '../../components/SearchBar.vue';
 import TopSongs from '../../components/TopSongs.vue';
 import songsData from '../../assets/data/songs.json';
 
+const route = useRoute();
 const searchTerm = ref('');
 const hasSearched = ref(false);
 const filteredSongs = ref([]);
 
-const handleSearch = (newSearchTerm) => {
-  searchTerm.value = newSearchTerm;
-  hasSearched.value = true;
-  filterResults();
-};
+const searchQuery = computed(() => route.query.search);
 
 const filterResults = () => {
   if (searchTerm.value) {
@@ -24,9 +22,20 @@ const filterResults = () => {
     filteredSongs.value = [];
   }
 };
+const handleSearch = (newSearchTerm) => {
+  searchTerm.value = newSearchTerm;
+  hasSearched.value = true;
+  filterResults();
+};
+
+watch(searchQuery, (newValue) => {
+handleSearch(newValue);
+}, { immediate: true });
+
+
+
 
 </script>
-
 <template>
 
   <NavBar />
