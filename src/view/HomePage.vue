@@ -4,14 +4,16 @@ import songs from '../assets/data/songs.json';
 import artists from '../assets/data/artists.json';
 import MusicCard from '../components/MusicCard.vue';
 import ArtistCard from '../components/ArtistCard.vue';
-import Header from '../components/Header.vue';
+import SearchBar from "../components/SearchBar.vue";
 
 </script>
 
 <template>
     <NavBar />
-    <Header title="Explorar" />
+
     <main>
+      <search-bar :titulo=" 'Busqueda' "/>
+
         <section class="home__explore-container">
             <div class="home__explore-title">
                 <p> Descubre nueva música, estilos y artistas. </p>
