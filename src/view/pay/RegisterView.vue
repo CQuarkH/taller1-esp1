@@ -5,8 +5,8 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-function goToPremium() {
-  router.push('/pay/card');
+function goToRegisterCard() {
+  router.push('/pay/register/card');
 }
 </script>
 
@@ -42,7 +42,11 @@ function goToPremium() {
             />
           </div>
 
-          <button @click="goToPremium()" class="avanzar--button" type="submit">
+          <button
+            @click="goToRegisterCard()"
+            class="avanzar--button"
+            type="submit"
+          >
             Guardar
           </button>
         </form>
