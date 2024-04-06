@@ -1,6 +1,13 @@
 <script setup>
 import NavBar from '../../components/NavBar.vue';
 import SelectCard from '../../components/SelectCard.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function goToPremium() {
+  router.push('/pay/card');
+}
 </script>
 
 <template>
@@ -8,7 +15,38 @@ import SelectCard from '../../components/SelectCard.vue';
   <main class="container">
     <article class="container__body">
       <SelectCard />
-      <section class="container__info"></section>
+      <section class="container__info">
+        <form class="container--form" action="">
+          <h2 class="form--title">Registro de usuario</h2>
+
+          <div class="form__subcontainer">
+            <input type="text" name="name" placeholder="Nombre" />
+            <input type="text" name="lastname" placeholder="Apellido" />
+          </div>
+
+          <div class="form__subcontainer">
+            <input type="email" name="email" placeholder="Correo" />
+            <input
+              type="email"
+              name="email-confirm"
+              placeholder="Confirmar correo"
+            />
+          </div>
+
+          <div class="form__subcontainer">
+            <input type="password" name="password" placeholder="contraseña" />
+            <input
+              type="password"
+              name="password-confirm"
+              placeholder="Confirmar contraseña"
+            />
+          </div>
+
+          <button @click="goToPremium()" class="avanzar--button" type="submit">
+            Guardar
+          </button>
+        </form>
+      </section>
     </article>
   </main>
 </template>
@@ -46,98 +84,67 @@ import SelectCard from '../../components/SelectCard.vue';
   text-justify: auto;
 }
 
-.container__info,
-.container__plan {
+.container__info {
   border-radius: 0.8vw;
   border: solid 2px rgb(217, 217, 217, 0.3);
 
   width: 100%;
   height: 100%;
-}
 
-.container__plan {
   display: grid;
-  grid-template-rows: 1fr 4fr;
-  width: 100%;
-  height: 100%;
-}
-
-.title__plan {
-  display: grid;
+  align-items: center;
   justify-items: center;
-  align-items: center;
-  font-size: 1.5vw;
-  width: 100%;
-  height: 100%;
 }
 
-.container__plan--card {
+.container--form {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 2vh;
+  width: 90%;
+  height: 95%;
+  align-items: center;
   justify-items: center;
-  align-items: center;
 }
 
-.card {
-  width: 70%;
-  height: 85%;
-  border-radius: 0.8vw;
-  border: solid 2px rgb(217, 217, 217, 0.3);
-  text-align: start;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.card__title {
-  text-align: center;
-  font-size: 1.2vw;
-  font-weight: 700;
-  margin-top: 1vh;
-  padding-bottom: 1vh;
-  border-bottom: solid 0.7vh rgba(255, 255, 255, 0.9);
-  width: 80%;
-}
-
-.card__tempo {
-  text-align: start;
-  font-weight: 500;
-  color: rgb(177, 177, 177);
-}
-
-.card__extra {
-  font-weight: 400;
-  font-style: italic;
-}
-
-.container__info--card {
-  width: 80%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.card__tempo,
-.card__extra,
-.card__price {
-  padding: 0;
+input {
+  background: rgb(217, 217, 217, 0.3);
+  font-style: none;
+  border: none;
   margin: 0;
+  padding: 0;
+
+  width: 80%;
+  height: 80%;
+  border-radius: 0.5vw;
+  text-indent: 0.8rem;
 }
 
-.card__Button {
-  margin-top: 2vh;
-  font-size: medium;
-  border-radius: 0.5vw;
-  height: 3.5vh;
-  font-weight: 500;
-  background-color: #ffd440;
+.form--title {
+  font-size: 1.2rem;
+}
+
+.form__subcontainer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  justify-items: center;
 }
 
 button {
   font-style: none;
   border: none;
   background: none;
+}
+
+.avanzar--button {
+  width: 20%;
+  height: 55%;
+
+  font-size: medium;
+  border-radius: 0.5vw;
+  font-weight: 600;
+  background-color: #ffd440;
 }
 </style>
