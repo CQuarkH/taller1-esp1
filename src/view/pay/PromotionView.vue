@@ -1,5 +1,12 @@
 <script setup>
 import NavBar from '../../components/NavBar.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function goToPremium() {
+  router.push('/pay/register');
+}
 </script>
 
 <template>
@@ -26,7 +33,9 @@ import NavBar from '../../components/NavBar.vue';
 
       <section class="container__avanzar">
         <div class="container__avanzar--button">
-          <button class="avanzar--button">Obtén premium</button>
+          <button @click="goToPremium()" class="avanzar--button">
+            Obtén premium
+          </button>
         </div>
         <div class="container__avanzar--text">
           <small class="info__small">
