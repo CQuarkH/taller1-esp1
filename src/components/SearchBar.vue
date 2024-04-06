@@ -1,22 +1,27 @@
 <template>
 
-  <div class="general-container">
+  <div class="general-container-SearchBar">
 
     <h2 class="tittle-container"> {{titulo}} </h2>
 
-    <div class="search-container">
-      <input
-          type="text"
-          v-model="searchQuery"
-          @input="onSearch"
-          class="search-input"
-          placeholder="Buscar canciones, artistas..."
-      >
-    </div>
 
-    <div class="icon-container">
+    <div class="search-icon-container">
 
-      <img class="icon" src="../assets/profile-pic.png" alt="">
+      <div class="search-container">
+        <input
+            type="text"
+            v-model="searchQuery"
+            @keyup.enter="onSearch"
+            class="search-input"
+            placeholder="Buscar canciones, artistas..."
+        >
+      </div>
+
+      <div class="icon-container">
+
+        <img src="../assets/profile-pic.png" alt="profile pic" />
+
+      </div>
     </div>
 
   </div>
@@ -24,31 +29,45 @@
 </template>
 
 <style scoped>
-.icon{
+
+.icon-container img{
   width: 50px;
   height: 50px;
-  margin-top: 50%;
-  margin-bottom: 50%;
-  margin-left: 30%;
-  border-radius: 95%;
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.search-icon-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  padding-left: 15px;
 }
 
 .tittle-container{
-  width: 50px;
-  height: 50px;
+  text-align: left ;
+
 }
 
-.general-container{
+.general-container-SearchBar{
   display: flex;
+  height: 100%;
+  width: 74vw;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-container {
   display: flex;
   align-items: center;
   background: #5E4B8B;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 5px 15px;
-  margin-left: 20%;
+  height: 4.8vh;
+  max-height: 100%;
 }
 
 .search-input {
@@ -56,12 +75,13 @@
   background: transparent;
   border: none;
   color: white;
-  padding: 10px 0;
-  margin-left: 10px;
+  padding: 5px 0;
+  margin-left: 5px;
+  font-size: 15px;
 }
 
 .search-input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(251, 251, 251, 0.6)
 }
 
 .search-input:focus {
