@@ -90,7 +90,7 @@
   display: grid;
   justify-items: center;
   align-items: center;
-  font-size: 1.5vw;
+  font-size: 1.2rem;
   width: 100%;
   height: 100%;
 }
@@ -117,7 +117,7 @@
 
 .card__title {
   text-align: center;
-  font-size: 1.2vw;
+  font-size: 0.8rem;
   font-weight: 700;
   margin-top: 1vh;
   padding-bottom: 1vh;
