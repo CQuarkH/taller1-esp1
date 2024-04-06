@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import PromotionView from '../view/pay/PromotionView.vue';
+import CardView from '../view/pay/CardView.vue';
 import HomePage from '../view/HomePage.vue';
 import RegisterView from '../view/pay/RegisterView.vue';
 import ArtistView from '../view/artist/ArtistView.vue';
@@ -20,6 +21,11 @@ const routes = [
     path: '/pay/register',
     name: 'RegisterPay',
     component: RegisterView,
+  },
+  {
+    path: '/pay/register/card',
+    name: 'CardView',
+    component: CardView,
   },
   {
     path: '/searchresults',
