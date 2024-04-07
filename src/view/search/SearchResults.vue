@@ -1,7 +1,6 @@
 
 <script setup>
-import { ref, computed, watch} from 'vue';
-import { useRoute } from 'vue-router';
+import { ref } from 'vue';
 import NavBar from '../../components/NavBar.vue';
 import Header from '../../components/Header.vue';
 import songsData from '../../assets/data/songs.json';
@@ -24,17 +23,6 @@ const filterResults = (searchTerm) => {
     filteredSongs.value = allSongs.value;
   }
 };
-const handleSearch = (newSearchTerm) => {
-  searchTerm.value = newSearchTerm;
-  hasSearched.value = true;
-  filterResults();
-};
-
-watch(searchQuery, (newValue) => {
-handleSearch(newValue);
-}, { immediate: true });
-
-
 
 
 </script>
@@ -44,7 +32,6 @@ handleSearch(newValue);
   <Header title="Buscar Musica" :onSearch= "handleSearch"/>
 
   <main>
-
     <section v-if="filteredSongs.length > 0" class="search__results">
       <h4>Top Songs</h4>
       <div class="search__results-grid">
@@ -92,6 +79,7 @@ main {
   height: 100%;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
 
 </style>
 
