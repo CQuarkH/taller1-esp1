@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import PromotionView from '../view/pay/PromotionView.vue';
+import CardView from '../view/pay/CardView.vue';
 import HomePage from '../view/HomePage.vue';
 import RegisterView from '../view/pay/RegisterView.vue';
+import ArtistView from '../view/artist/ArtistView.vue';
 import SearchResults from '../view/search/SearchResults.vue';
-import Artist from "../view/artist/Artist.vue";
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
     component: RegisterView,
   },
   {
+    path: '/pay/register/card',
+    name: 'CardView',
+    component: CardView,
+  },
+  {
     path: '/searchresults',
     name: 'Searchresults',
     component: SearchResults,
@@ -30,7 +36,7 @@ const routes = [
   {
     path: '/artist/artist/:id',
     name: 'artist',
-    component: Artist,
+    component: ArtistView,
   },
 ];
 

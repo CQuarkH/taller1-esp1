@@ -20,7 +20,7 @@ export default defineComponent({
 
 <template>
     <div class="artist__card" @click="goToArtist">
-        <img :src="artist.imageUrl" alt="artist.name" />
+        <img :src="artist.profile" alt="artist.name" />
         <div class="artist__card-content-container">
             <div class="artist__card-content">
                 <h4> {{ artist.name }}</h4>
