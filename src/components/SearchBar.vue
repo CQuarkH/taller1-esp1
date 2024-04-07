@@ -90,25 +90,29 @@
 </style>
 
 <script>
-
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'SearchBar',
-  data() {
-    return {
-      searchQuery: ''
-    };
-  },
-  methods: {
-    onSearch() {
-      this.$emit('onSearch', this.searchQuery);
+  setup() {
+    const searchQuery = ref('');
+    const router = useRouter();
+
+    function onSearch() {
+      console.log('Redirigiendo con el término de búsqueda:', searchQuery.value);
+      router.push({ name: 'Searchresults', query: { search: searchQuery.value } });
     }
+
+    return {
+      searchQuery,
+      onSearch
+    };
   },
   props: {
     titulo: {
       type: String,
-      defaul: 'Inserte Titulo'
+      default: 'Inserte Título'
     }
   }
 });

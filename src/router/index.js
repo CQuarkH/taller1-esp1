@@ -29,9 +29,9 @@ const routes = [
   },
   {
     path: '/searchresults',
-    name: 'searchresults',
+    name: 'Searchresults',
     component: SearchResults,
-    props: (route) => ({ query: route.query.q }),
+    props: (route) => ({ query: route.query.search }),
   },
   {
     path: '/artist/artist/:id',
