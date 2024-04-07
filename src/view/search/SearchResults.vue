@@ -29,9 +29,9 @@ const filterResults = () => {
 
 <template>
 
-  <div class="general-container">
+  <NavBar />
 
-    <NavBar />
+  <div class="general-container">
 
     <div class="search-header">
       <SearchBar @onSearch="handleSearch" :titulo=" 'Busqueda' " />
@@ -55,12 +55,18 @@ const filterResults = () => {
 <style scoped>
 
 .general-container {
+  margin-left: 22vw;
+  height: 100%;
+  width: 77vw;
   max-width: 1200px;
   padding: 20px;
-  margin: 0 auto 0 28vw;
 }
 
 .search-header {
+
+  height: 100px;
+
+
 }
 
 .search-results {
