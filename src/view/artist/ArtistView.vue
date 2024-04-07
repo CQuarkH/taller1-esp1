@@ -1,21 +1,27 @@
 <script setup>
 import NavBar from "../../components/NavBar.vue";
-import Header from "../../components/Header.vue";
-import { ref, onMounted } from 'vue';
+import AlbumCard from "../../components/AlbumCard.vue";
+import {ref, onMounted} from 'vue';
 import { useRoute } from "vue-router";
-import artistsData from '../../assets/data/artists.json'; // Importa el JSON de la carpeta assets
+import artistsData from '../../assets/data/artists.json';
+import albumsData from '../../assets/data/albums.json';
+import songsData from '../../assets/data/songs.json';
+import MusicCard from "../../components/MusicCard.vue";
 
 const artist = ref({});
+const filteredAlbums = ref({});
+const filteredSongs = ref({});
 const route = useRoute();
 
 onMounted(() => {
-  const artistId = route.params.id;
-  const selectedArtist = artistsData.find(artist => artist.id === parseInt(artistId));
-  if (selectedArtist) {
-    artist.value = selectedArtist;
-  } else {
+  const artistId = parseInt(route.params.id);
+  artist.value = artistsData.find(artist => artist.id === artistId);
+  if (!artist.value) {
     console.error(`Artista con ID ${artistId} no encontrado.`);
+    return;
   }
+  filteredAlbums.value = albumsData.filter(album => album.artistID === artist.value.id);
+  filteredSongs.value = songsData.filter(song => song.artist === artist.value.name);
 });
 
 </script>
@@ -24,22 +30,38 @@ onMounted(() => {
 <template>
   <NavBar />
 
-
   <main>
     <section>
-      <img class="wallpaper" src="../../assets/wallpaper-artist/beyonce.jpg" :alt="artist.name">
+      <div id="wallpaper-container">
+        <img id="wallpaper-pic" :src="artist.wallpaper" :alt="wallpaper">
+      </div>
       <p id="artist-name"> {{ artist.name }}   </p>
       <button>
-        <img class="icon" src="../../assets/icono-play.png"> Reproducir
+        <img class="icon" src="../../assets/icono-play.png" alt=""> Reproducir
       </button>
     </section>
 
-    <div id="about-artist">
-      <div>
-        <img id="profile-pic" src="../../assets/profile-artist/beyonce.png" alt="">
+    <div class="section">
+      <h2 class="section-title">Canciones más escuchadas</h2>
+      <div id="list-songs">
+        <MusicCard v-for="song in filteredSongs" :key="song.id" :song="song"></MusicCard>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Álbumes</h2>
+      <div id="list-albums">
+        <AlbumCard v-for="album in filteredAlbums" :key="album.id" :album="album"></AlbumCard>
+      </div>
+    </div>
+
+
+    <div class="section" id="about-artist">
+      <div id="profile-container">
+        <img id="profile-pic" :src="artist.profile" alt="">
       </div>
       <div id="info">
-        <h2>Sobre {{ artist.name }} </h2>
+        <h2>Sobre {{ artist.name }} </h2><br>
         {{ artist.description }}
       </div>
     </div>
@@ -50,6 +72,9 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.section-title{
+  text-align: left;
+}
 main {
   display: flex;
   flex-direction: column;
@@ -58,13 +83,20 @@ main {
   margin-left: 22vw;
   overflow-y: auto;
 }
-.wallpaper{
+#wallpaper-container{
   width: 100%;
-  max-height: 475px;
-  display:block;
+  max-height: 470px;
+  overflow: hidden;
+}
+#wallpaper-pic{
+  width: 100%;
+  height: auto;
 }
 section{
   position: relative;
+}
+.section{
+  margin-top: 3vw;
 }
 section::before{
   content: '';
@@ -81,7 +113,7 @@ section::before{
   font-weight: bold;
   color: white;
   position: absolute;
-  top: 63%;
+  top: 70%;
   right: 7%;
 }
 button{
@@ -102,24 +134,43 @@ button{
   max-height: 2vw;
   margin-right: 5%;
 }
+#list-songs{
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+#list-albums {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
 #about-artist{
   background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
   padding: 1.5vw;
   display: flex;
   border-radius: 10px;
 }
-#profile-pic {
+#profile-container{
+  display: inline-block;
+  position: relative;
   width: 26vw;
   height: 26vw;
   max-height: 200px;
   max-width: 200px;
-  border-radius: 50%;
   overflow: hidden;
+  border-radius: 50%;
   margin: 10px;
-  padding: 10px;
+}
+#profile-pic {
+  width: auto;
+  height: 100%;
 }
 #info {
-  margin: 10px;
+  flex: 1;
   padding: 10px;
 }
 

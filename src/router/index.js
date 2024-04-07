@@ -34,7 +34,7 @@ const routes = [
     props: (route) => ({ query: route.query.q }),
   },
   {
-    path: '/artist/artist',
+    path: '/artist/artist/:id',
     name: 'artist',
     component: ArtistView,
   },
