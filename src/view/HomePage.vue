@@ -59,8 +59,8 @@ svg {
 main {
   display: flex;
   flex-direction: column;
-  min-height: 83vh;
-  max-height: 90vh;
+  height: 86%;
+  max-height: 88%;
   width: 77vw;
   margin-left: 22vw;
   overflow-y: auto;
