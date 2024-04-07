@@ -1,24 +1,19 @@
-<script>
-    import { defineAsyncComponent, defineComponent } from 'vue';
 
-    let pista = Audio(song.track);
 
+<script setup>
+
+    import {ref} from 'vue'
+
+    const props = defineProps({
+        song: Object,
+        require: true
+    });
+
+    const track = Audio(song.track)
 
     
 
-    export default defineComponent({
-        name: 'SongProgress',
-        props: {
-            song:{
-                type: Object,
-                requerided: true
-            }
-            
-        }, 
-        
-
-    });
-
+    
 
 </script>
 

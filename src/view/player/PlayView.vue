@@ -29,6 +29,8 @@ import SongProgress from '../player/SongProgress.vue';
         <SongCard />
         
 
+        
+
       </section>
       
       <SongProgress />
