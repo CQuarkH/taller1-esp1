@@ -4,7 +4,7 @@ import CardView from '../view/pay/CardView.vue';
 import HomePage from '../view/HomePage.vue';
 import RegisterView from '../view/pay/RegisterView.vue';
 import ArtistView from '../view/artist/ArtistView.vue';
-import SearchResults from '../components/SearchBar.vue';
+import SearchResults from '../view/search/SearchResults.vue';
 
 const routes = [
   {
@@ -29,9 +29,9 @@ const routes = [
   },
   {
     path: '/searchresults',
-    name: 'searchresults',
+    name: 'Searchresults',
     component: SearchResults,
-    props: (route) => ({ query: route.query.q }),
+    props: (route) => ({ query: route.query.search }),
   },
   {
     path: '/artist/artist/:id',

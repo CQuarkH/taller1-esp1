@@ -1,23 +1,33 @@
 <script>
 import { defineComponent } from 'vue';
+import SearchBar from './SearchBar.vue';
 
 export default defineComponent({
   name: 'Header',
+  components: {
+    SearchBar,
+  },
   props: {
     title: {
       type: String,
       required: true,
     },
+    onSearch: {
+      type: Function,
+      required: false
+    }
   },
+
 });
 </script>
 
 <template>
   <header class="header">
     <h1>{{ title }}</h1>
-
+  
     <div class="header__right">
-      Esteban, pon tu componente aqui
+      <SearchBar :onSearch="onSearch"/>
+      
       <img src="../assets/profile-pic.png" />
     </div>
   </header>
