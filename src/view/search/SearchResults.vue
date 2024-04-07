@@ -1,6 +1,7 @@
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed, watch} from 'vue';
+import { useRoute } from 'vue-router';
 import NavBar from '../../components/NavBar.vue';
 import Header from '../../components/Header.vue';
 import songsData from '../../assets/data/songs.json';
@@ -13,6 +14,7 @@ const handleSearch = (newSearchTerm) => {
   filterResults(newSearchTerm);
 };
 
+
 const filterResults = (searchTerm) => {
   if (searchTerm.length > 0) {
     filteredSongs.value = songsData.filter(song =>
@@ -22,9 +24,20 @@ const filterResults = (searchTerm) => {
     filteredSongs.value = allSongs.value;
   }
 };
+const handleSearch = (newSearchTerm) => {
+  searchTerm.value = newSearchTerm;
+  hasSearched.value = true;
+  filterResults();
+};
+
+watch(searchQuery, (newValue) => {
+handleSearch(newValue);
+}, { immediate: true });
+
+
+
 
 </script>
-
 <template>
 
   <NavBar />
@@ -40,13 +53,15 @@ const filterResults = (searchTerm) => {
         :song="song" :key="song.id"/>
       </div>
 
-    </section>
+      </section>
 
   </main>
+
 
 </template>
 
 <style scoped>
+
 
 main {
   display: flex;
@@ -77,8 +92,6 @@ main {
   height: 100%;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-}
-
 
 </style>
 

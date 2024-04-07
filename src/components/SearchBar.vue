@@ -112,6 +112,3 @@ export default defineComponent({
   outline: none;
 }
 </style>
-
-
-
