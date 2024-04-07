@@ -4,46 +4,49 @@ import songs from '../assets/data/songs.json';
 import artists from '../assets/data/artists.json';
 import MusicCard from '../components/MusicCard.vue';
 import ArtistCard from '../components/ArtistCard.vue';
-import SearchBar from "../components/SearchBar.vue";
-
+import SearchBar from '../components/SearchBar.vue';
 </script>
 
 <template>
-    <NavBar />
+  <NavBar />
 
-    <main>
-      <search-bar :titulo=" 'Busqueda' "/>
+  <main>
+    <search-bar :titulo="'Busqueda'" />
 
-        <section class="home__explore-container">
-            <div class="home__explore-title">
-                <p> Descubre nueva música, estilos y artistas. </p>
-            </div>
+    <section class="home__explore-container">
+      <div class="home__explore-title">
+        <p>Descubre nueva música, estilos y artistas.</p>
+      </div>
 
-            <section class="home__artist-list">
-                <ArtistCard v-for="artist in artists" :key="artist.id" :artist="artist" />
-            </section>
+      <section class="home__artist-list">
+        <ArtistCard
+          v-for="artist in artists"
+          :key="artist.id"
+          :artist="artist"
+        />
+      </section>
+    </section>
 
-        </section>
+    <section class="home__music-container">
+      <h3>
+        Lo nuevo
+        <svg
+          class="chevron"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 64 64"
+          aria-hidden="true"
+        >
+          <path
+            d="M19.817 61.863c1.48 0 2.672-.515 3.702-1.546l24.243-23.63c1.352-1.385 1.996-2.737 2.028-4.443 0-1.674-.644-3.09-2.028-4.443L23.519 4.138c-1.03-.998-2.253-1.513-3.702-1.513-2.994 0-5.409 2.382-5.409 5.344 0 1.481.612 2.833 1.739 3.96l20.99 20.347-20.99 20.283c-1.127 1.126-1.739 2.478-1.739 3.96 0 2.93 2.415 5.344 5.409 5.344Z"
+          ></path>
+        </svg>
+      </h3>
 
-
-        <section class="home__music-container">
-            <h3>Lo nuevo
-                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
-                    <path
-                        d="M19.817 61.863c1.48 0 2.672-.515 3.702-1.546l24.243-23.63c1.352-1.385 1.996-2.737 2.028-4.443 0-1.674-.644-3.09-2.028-4.443L23.519 4.138c-1.03-.998-2.253-1.513-3.702-1.513-2.994 0-5.409 2.382-5.409 5.344 0 1.481.612 2.833 1.739 3.96l20.99 20.347-20.99 20.283c-1.127 1.126-1.739 2.478-1.739 3.96 0 2.93 2.415 5.344 5.409 5.344Z">
-                    </path>
-                </svg>
-            </h3>
-
-            <div class="home__music-grid">
-                <MusicCard v-for="song in songs" :key="song.id" :song="song" />
-            </div>
-        </section>
-
-
-    </main>
-
-
+      <div class="home__music-grid">
+        <MusicCard v-for="song in songs" :key="song.id" :song="song" />
+      </div>
+    </section>
+  </main>
 </template>
 
 <style scoped>
@@ -54,12 +57,12 @@ svg {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    height: 88vh;
-    width: 77vw;
-    margin-left: 22vw;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 98vh;
+  width: 77vw;
+  margin-left: 22vw;
+  overflow-y: auto;
 }
 
 .home__explore-container {
