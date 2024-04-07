@@ -1,12 +1,32 @@
 <script setup>
 import NavBar from '../../components/NavBar.vue';
 import SelectCard from '../../components/SelectCard.vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+const name = ref('');
+const lastname = ref('');
+const email = ref('');
+const emailConfirm = ref('');
+const password = ref('');
+const passwordConfirm = ref('');
+
+console.log(name);
 function goToRegisterCard() {
-  router.push('/pay/register/card');
+  if (
+    name.value === '' ||
+    lastname.value === '' ||
+    email.value === '' ||
+    emailConfirm.value === '' ||
+    password.value === '' ||
+    passwordConfirm.value === ''
+  ) {
+    alert('Por favor, rellene todos los campos');
+  } else {
+    router.push('/pay/register/card');
+  }
 }
 </script>
 
@@ -20,13 +40,29 @@ function goToRegisterCard() {
           <h2 class="form--title">Registro de usuario</h2>
 
           <div class="form__subcontainer">
-            <input type="text" name="name" placeholder="Nombre" />
-            <input type="text" name="lastname" placeholder="Apellido" />
+            <input
+              v-model="name"
+              type="text"
+              name="name"
+              placeholder="Nombre"
+            />
+            <input
+              v-model="lastname"
+              type="text"
+              name="lastname"
+              placeholder="Apellido"
+            />
           </div>
 
           <div class="form__subcontainer">
-            <input type="email" name="email" placeholder="Correo" />
             <input
+              v-model="email"
+              type="email"
+              name="email"
+              placeholder="Correo"
+            />
+            <input
+              v-model="emailConfirm"
               type="email"
               name="email-confirm"
               placeholder="Confirmar correo"
@@ -34,8 +70,14 @@ function goToRegisterCard() {
           </div>
 
           <div class="form__subcontainer">
-            <input type="password" name="password" placeholder="contraseña" />
             <input
+              v-model="password"
+              type="password"
+              name="password"
+              placeholder="contraseña"
+            />
+            <input
+              v-model="passwordConfirm"
               type="password"
               name="password-confirm"
               placeholder="Confirmar contraseña"
@@ -55,7 +97,7 @@ function goToRegisterCard() {
   </main>
 </template>
 
-<style>
+<style scoped>
 .container {
   width: 100%;
   height: 100vh;
@@ -116,6 +158,7 @@ input {
   border: none;
   margin: 0;
   padding: 0;
+  color: #f2f2f2;
 
   width: 80%;
   height: 80%;
