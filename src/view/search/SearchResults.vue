@@ -13,7 +13,6 @@ const handleSearch = (newSearchTerm) => {
   filterResults(newSearchTerm);
 };
 
-
 const filterResults = (searchTerm) => {
   if (searchTerm.length > 0) {
     filteredSongs.value = songsData.filter(song =>
@@ -24,12 +23,11 @@ const filterResults = (searchTerm) => {
   }
 };
 
-
 </script>
 <template>
 
   <NavBar />
-  <Header title="Buscar Musica" :onSearch= "handleSearch"/>
+  <Header title="Explorar" :onSearch= "handleSearch"/>
 
   <main>
     <section v-if="filteredSongs.length > 0" class="search__results">
@@ -48,7 +46,6 @@ const filterResults = (searchTerm) => {
 </template>
 
 <style scoped>
-
 
 main {
   display: flex;

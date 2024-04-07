@@ -41,6 +41,7 @@ header {
     width: 77vw;
     padding: 0.5rem 0 0.5rem 0;
     justify-content: space-between;
+    align-items: center;
 }
 
 header img {

@@ -9,7 +9,7 @@ import Header from '../components/Header.vue';
 
 <template>
   <NavBar />
-  <Header title="Explorar"/>
+  <Header title="Inicio"/>
 
   <main>
 
@@ -84,7 +84,6 @@ main {
 .home__explore-title h1 {
   font-size: 2rem;
   font-weight: 700;
-  margin-top: 2vh;
   margin-bottom: 0;
 }
 
