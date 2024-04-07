@@ -53,7 +53,8 @@ const filterResults = (searchTerm) => {
 main {
   display: flex;
   flex-direction: column;
-  height: 98vh;
+  min-height: 83vh;
+  max-height: 90vh;
   width: 77vw;
   margin-left: 22vw;
   overflow-y: auto;
