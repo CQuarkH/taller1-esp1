@@ -1,28 +1,52 @@
+<script>
+
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'SearchBar',
+  data() {
+    return {
+      searchQuery: ''
+    };
+  },
+  methods: {
+    handleSearch() {
+      if (this.onSearch) {
+        this.onSearch(this.searchQuery);
+      }
+    }, 
+
+    handleNavigate() {
+      if (this.$route.path !== '/searchResults') {
+        this.$router.push('/searchResults');
+      }
+
+    }
+  },
+
+  props: {
+    onSearch: {
+      type: Function,
+      required: false
+    }
+  }
+
+});
+</script>
+
 <template>
-
-  <div class="general-container-SearchBar">
-
-    <h2 class="tittle-container"> {{titulo}} </h2>
-
-
     <div class="search-icon-container">
 
       <div class="search-container">
         <input
             type="text"
             v-model="searchQuery"
-            @keyup.enter="onSearch"
+            @click="handleNavigate"
+            @input="handleSearch"
             class="search-input"
             placeholder="Buscar canciones, artistas..."
         >
       </div>
-
-      <div class="icon-container">
-
-        <img src="../assets/profile-pic.png" alt="profile pic" />
-
-      </div>
-    </div>
 
   </div>
 
@@ -42,7 +66,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex-grow: 1;
+  
   padding-left: 15px;
 }
 
@@ -88,33 +112,3 @@
   outline: none;
 }
 </style>
-
-<script>
-import { defineComponent, ref } from 'vue';
-import { useRouter } from 'vue-router';
-
-export default defineComponent({
-  name: 'SearchBar',
-  setup() {
-    const searchQuery = ref('');
-    const router = useRouter();
-
-    function onSearch() {
-      console.log('Redirigiendo con el término de búsqueda:', searchQuery.value);
-      router.push({ name: 'Searchresults', query: { search: searchQuery.value } });
-    }
-
-    return {
-      searchQuery,
-      onSearch
-    };
-  },
-  props: {
-    titulo: {
-      type: String,
-      default: 'Inserte Título'
-    }
-  }
-});
-</script>
-

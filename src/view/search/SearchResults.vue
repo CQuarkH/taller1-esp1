@@ -1,25 +1,27 @@
+
 <script setup>
 import { ref, computed, watch} from 'vue';
 import { useRoute } from 'vue-router';
 import NavBar from '../../components/NavBar.vue';
-import SearchBar from '../../components/SearchBar.vue';
-import TopSongs from '../../components/TopSongs.vue';
+import Header from '../../components/Header.vue';
 import songsData from '../../assets/data/songs.json';
+import MusicCard from '../../components/MusicCard.vue';
 
-const route = useRoute();
-const searchTerm = ref('');
-const hasSearched = ref(false);
-const filteredSongs = ref([]);
+const allSongs = ref(songsData);
+const filteredSongs = ref(songsData);
 
-const searchQuery = computed(() => route.query.search);
+const handleSearch = (newSearchTerm) => {
+  filterResults(newSearchTerm);
+};
 
-const filterResults = () => {
-  if (searchTerm.value) {
+
+const filterResults = (searchTerm) => {
+  if (searchTerm.length > 0) {
     filteredSongs.value = songsData.filter(song =>
-        song.name.toLowerCase().includes(searchTerm.value.toLowerCase())
+        song.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   } else {
-    filteredSongs.value = [];
+    filteredSongs.value = allSongs.value;
   }
 };
 const handleSearch = (newSearchTerm) => {
@@ -39,26 +41,20 @@ handleSearch(newValue);
 <template>
 
   <NavBar />
+  <Header title="Buscar Musica" :onSearch= "handleSearch"/>
 
   <main>
-    <div class="general-container">
 
-      <div class="search-header">
-        <SearchBar @onSearch="handleSearch" :titulo=" 'Busqueda' " />
+    <section v-if="filteredSongs.length > 0" class="search__results">
+      <h4>Top Songs</h4>
+      <div class="search__results-grid">
+        <MusicCard 
+        v-for="song in filteredSongs"
+        :song="song" :key="song.id"/>
       </div>
-
-      <section v-if="hasSearched" class="search-results">
-
-        <div class="search-results__top-songs">
-          <h2>Top Songs</h2>
-          <TopSongs :songs="filteredSongs" />
-        </div>
 
       </section>
 
-      <h1> Prueba</h1>
-
-    </div>
   </main>
 
 
@@ -66,34 +62,36 @@ handleSearch(newValue);
 
 <style scoped>
 
-.general-container {
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 98vh;
+  width: 77vw;
   margin-left: 22vw;
+  overflow-y: auto;
+}
+
+.search__results{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.search__results h4{
+  
+  margin-left: 0.5rem;
+
+}
+
+.search__results-grid {
+
+  display: grid;
+  width: 100%;
   height: 100%;
-  width: 74vw;
-  max-width: 1200px;
-  padding: 20px;
-}
-
-.search-header {
-
-  height: 100px;
-
-
-}
-
-.search-results {
-}
-
-.search-results__top-songs
-{
-  justify-content: center;
-  width: 48.611vw;
-  margin-bottom: 20px;
-}
-
-.search-results h2 {
-  margin-bottom: 15px;
-}
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 
 </style>
 

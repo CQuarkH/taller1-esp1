@@ -4,14 +4,14 @@ import songs from '../assets/data/songs.json';
 import artists from '../assets/data/artists.json';
 import MusicCard from '../components/MusicCard.vue';
 import ArtistCard from '../components/ArtistCard.vue';
-import SearchBar from '../components/SearchBar.vue';
+import Header from '../components/Header.vue';
 </script>
 
 <template>
   <NavBar />
+  <Header title="Explorar"/>
 
   <main>
-    <search-bar :titulo="'Busqueda'" />
 
     <section class="home__explore-container">
       <div class="home__explore-title">
@@ -97,6 +97,7 @@ main {
 .home__music-container {
   display: flex;
   flex-direction: column;
+  max-height: 100%;
   gap: 1rem;
   text-align: left;
 }
@@ -110,7 +111,7 @@ main {
 .home__music-grid {
   display: grid;
   width: 100%;
-  height: 100%;
+  max-height: 100%;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 }
