@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import PromotionView from '../view/pay/PromotionView.vue';
 import HomePage from '../view/HomePage.vue';
 import SearchResults from "../view/search/SearchResults.vue";
+import PlayView from '../view/player/PlayView.vue';
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     component: SearchResults,
     props: (route) => ({ query: route.query.q })
   },
+  {
+    path: '/player/play',
+    name: 'PlayView',
+    component: PlayView
+  }
 ];
 
 const router = createRouter({
