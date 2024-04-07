@@ -1,27 +1,25 @@
+
 <script setup>
 import { ref } from 'vue';
 import NavBar from '../../components/NavBar.vue';
-import SearchBar from '../../components/SearchBar.vue';
-import TopSongs from '../../components/TopSongs.vue';
+import Header from '../../components/Header.vue';
 import songsData from '../../assets/data/songs.json';
+import MusicCard from '../../components/MusicCard.vue';
 
-const searchTerm = ref('');
-const hasSearched = ref(false);
-const filteredSongs = ref([]);
+const allSongs = ref(songsData);
+const filteredSongs = ref(songsData);
 
 const handleSearch = (newSearchTerm) => {
-  searchTerm.value = newSearchTerm;
-  hasSearched.value = true;
-  filterResults();
+  filterResults(newSearchTerm);
 };
 
-const filterResults = () => {
-  if (searchTerm.value) {
+const filterResults = (searchTerm) => {
+  if (searchTerm.length > 0) {
     filteredSongs.value = songsData.filter(song =>
-        song.name.toLowerCase().includes(searchTerm.value.toLowerCase())
+        song.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   } else {
-    filteredSongs.value = [];
+    filteredSongs.value = allSongs.value;
   }
 };
 
@@ -30,56 +28,57 @@ const filterResults = () => {
 <template>
 
   <NavBar />
+  <Header title="Buscar Musica" :onSearch= "handleSearch"/>
 
-  <div class="general-container">
+  <main>
 
-    <div class="search-header">
-      <SearchBar @onSearch="handleSearch" :titulo=" 'Busqueda' " />
-    </div>
-
-    <section v-if="hasSearched" class="search-results">
-
-      <div class="search-results__top-songs">
-        <h2>Top Songs</h2>
-        <TopSongs :songs="filteredSongs" />
+    <section v-if="filteredSongs.length > 0" class="search__results">
+      <h4>Top Songs</h4>
+      <div class="search__results-grid">
+        <MusicCard 
+        v-for="song in filteredSongs"
+        :song="song" :key="song.id"/>
       </div>
 
     </section>
 
-    <h1> Prueba</h1>
-
-  </div>
+  </main>
 
 </template>
 
 <style scoped>
 
-.general-container {
-  margin-left: 22vw;
-  height: 100%;
+main {
+  display: flex;
+  flex-direction: column;
+  height: 98vh;
   width: 77vw;
-  max-width: 1200px;
-  padding: 20px;
+  margin-left: 22vw;
+  overflow-y: auto;
 }
 
-.search-header {
+.search__results{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
 
-  height: 100px;
-
+.search__results h4{
+  
+  margin-left: 0.5rem;
 
 }
 
-.search-results {
+.search__results-grid {
+
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 }
 
-.search-results__top-songs
-{
-  margin-bottom: 20px;
-}
-
-.search-results h2 {
-  margin-bottom: 15px;
-}
 
 </style>
 
