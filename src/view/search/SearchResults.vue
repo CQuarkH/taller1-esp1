@@ -40,24 +40,27 @@ handleSearch(newValue);
 
   <NavBar />
 
-  <div class="general-container">
+  <main>
+    <div class="general-container">
 
-    <div class="search-header">
-      <SearchBar @onSearch="handleSearch" :titulo=" 'Busqueda' " />
-    </div>
-
-    <section v-if="hasSearched" class="search-results">
-
-      <div class="search-results__top-songs">
-        <h2>Top Songs</h2>
-        <TopSongs :songs="filteredSongs" />
+      <div class="search-header">
+        <SearchBar @onSearch="handleSearch" :titulo=" 'Busqueda' " />
       </div>
 
-    </section>
+      <section v-if="hasSearched" class="search-results">
 
-    <h1> Prueba</h1>
+        <div class="search-results__top-songs">
+          <h2>Top Songs</h2>
+          <TopSongs :songs="filteredSongs" />
+        </div>
 
-  </div>
+      </section>
+
+      <h1> Prueba</h1>
+
+    </div>
+  </main>
+
 
 </template>
 
@@ -66,7 +69,7 @@ handleSearch(newValue);
 .general-container {
   margin-left: 22vw;
   height: 100%;
-  width: 77vw;
+  width: 74vw;
   max-width: 1200px;
   padding: 20px;
 }
@@ -83,6 +86,8 @@ handleSearch(newValue);
 
 .search-results__top-songs
 {
+  justify-content: center;
+  width: 48.611vw;
   margin-bottom: 20px;
 }
 
