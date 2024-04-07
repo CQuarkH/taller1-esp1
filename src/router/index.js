@@ -5,6 +5,7 @@ import HomePage from '../view/HomePage.vue';
 import RegisterView from '../view/pay/RegisterView.vue';
 import ArtistView from '../view/artist/ArtistView.vue';
 import SearchResults from '../view/search/SearchResults.vue';
+import PlayView from '../view/player/PlayView.vue';
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
     name: 'artist',
     component: ArtistView,
   },
+  {
+    path: '/player/play',
+    name: 'PlayView',
+    component: PlayView
+  }
 ];
 
 const router = createRouter({

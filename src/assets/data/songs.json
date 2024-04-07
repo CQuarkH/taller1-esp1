@@ -8,38 +8,6 @@
         "albumID": 1
     },
     {
-        "id": 2,
-        "name": "Hold Up",
-        "artist": "Beyoncé",
-        "duration": "3:41",
-        "imageUrl": "https://media.revistavanityfair.es/photos/60e85b9064a1ecf164d07ee1/master/w_1600%2Cc_limit/3207.jpg",
-        "albumID": 1
-    },
-    {
-        "id": 3,
-        "name": "Don't Hurt Yourself (ft. Jack White)",
-        "artist": "Beyoncé",
-        "duration": "3:53",
-        "imageUrl": "https://media.revistavanityfair.es/photos/60e85b9064a1ecf164d07ee1/master/w_1600%2Cc_limit/3207.jpg",
-        "albumID": 1
-    },
-    {
-        "id": 4,
-        "name": "No Reason",
-        "artist": "Sum 41",
-        "duration": "3:05",
-        "imageUrl": "https://i.discogs.com/xlV0oNVcY5KTHr7_CU-J2ZymUgxet1DervXPCnihr20/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwMjM3/MTktMTMxMjIwNjky/OC5qcGVn.jpeg",
-        "albumID": 2
-    },
-    {
-        "id": 5,
-        "name": "We're All to Blame",
-        "artist": "Sum 41",
-        "duration": "3:38",
-        "imageUrl": "https://i.discogs.com/xlV0oNVcY5KTHr7_CU-J2ZymUgxet1DervXPCnihr20/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwMjM3/MTktMTMxMjIwNjky/OC5qcGVn.jpeg",
-        "albumID": 2
-    },
-    {
         "id": 6,
         "name": "Some Say",
         "artist": "Sum 41",
@@ -56,34 +24,10 @@
         "albumID": 3
     },
     {
-        "id": 8,
-        "name": "Tonight (I'm Lovin' You) [ft. Ludacris & DJ Frank E]",
-        "artist": "Enrique Iglesias",
-        "duration": "3:52",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b2/Euphoria_Album_Cover.jpg",
-        "albumID": 3
-    },
-    {
-        "id": 9,
-        "name": "Heartbeat (ft. Nicole Scherzinger)",
-        "artist": "Enrique Iglesias",
-        "duration": "4:17",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b2/Euphoria_Album_Cover.jpg",
-        "albumID": 3
-    },
-    {
         "id": 10,
         "name": "Me Enamoré",
         "artist": "Shakira",
         "duration": "3:45",
-        "imageUrl": "https://i.discogs.com/S1X5AgbXoVe50rRGX0T5c35EfNlKOycB8Sg3co7OjPE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExMTE2/MDU0LTE2MDIyODA2/NzMtMjk1MC5qcGVn.jpeg",
-        "albumID": 4
-    },
-    {
-        "id": 11,
-        "name": "Chantaje (ft. Maluma)",
-        "artist": "Shakira",
-        "duration": "3:16",
         "imageUrl": "https://i.discogs.com/S1X5AgbXoVe50rRGX0T5c35EfNlKOycB8Sg3co7OjPE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExMTE2/MDU0LTE2MDIyODA2/NzMtMjk1MC5qcGVn.jpeg",
         "albumID": 4
     },
