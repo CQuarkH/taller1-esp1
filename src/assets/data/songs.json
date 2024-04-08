@@ -5,7 +5,7 @@
         "artist": "Beyoncé",
         "duration": "3:16",
         "imageUrl": "https://media.revistavanityfair.es/photos/60e85b9064a1ecf164d07ee1/master/w_1600%2Cc_limit/3207.jpg",
-        "songUrl":"src/assets/songs/Pray You Catch Me.mp3",
+        "songUrl":"/src/assets/songs/Pray You Catch Me.mp3",
         "albumID": 1
     },
     {

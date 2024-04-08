@@ -6,14 +6,15 @@
         name: 'progress__content',
         data () {
             return {
-                current: {},
-                index: 0,
+                current: [],
+                index : 0,
                 isPlaying: false,
-                songList: songs,
+                songList : songs,
                 player: new Audio(),
                 volume: 0.5
             }
         },
+        songList : songs,
         created(){
             this.current = this.songList[this.index]
             this.player.src = this.current.src;
@@ -26,12 +27,14 @@
             },
 
             play(song){
+                this.player.src = "/src/assets/songs/Pray You Catch Me.mp3";
+                this.current = this.songList[this.index]
+                
                 if (typeof song.src != "undefined"){
                     this.current = song;
                     this.player.src = this.src;
                 }
-
-                this.player.play();
+                
                 this.player.addEventListener('ended',function (){
                     this.index++;
                     if (this.index > this.songs.length - 1) {
@@ -39,8 +42,17 @@
                     }
                     this.current = this.songList[this.index];
                     this.play(this.current);
-                }.bind(this))
-                this.isPlaying = true;
+                })
+                
+                if (!this.isPlaying){
+                    this.player.play();
+                    this.isPlaying = true;
+
+                }else{
+                    this.player.pause();
+                    this.isPlaying = false;
+
+                }
             }
         },
         pause(){
@@ -83,6 +95,7 @@
         <section class="progress__section">
             <h5 class="time__progress">1</h5>
             <input type="range" min="0" max="100" step="0.01" value="50%" class="music__progress">
+            
             <h5 class="music__duration">1.11</h5>
         </section>
         <section class="music__controls">
