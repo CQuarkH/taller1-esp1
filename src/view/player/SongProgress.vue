@@ -1,6 +1,78 @@
 <script>
+    import songs from '../../assets/data/songs.json'
+
+    export default{
+        
+        name: 'progress__content',
+        data () {
+            return {
+                current: {},
+                index: 0,
+                isPlaying: false,
+                songList: songs,
+                player: new Audio(),
+                volume: 0.5
+            }
+        },
+        created(){
+            this.current = this.songList[this.index]
+            this.player.src = this.current.src;
+            
+        },
+        methods:{
+            setVolume(){
+                name : 'volume__button';
+                this.player.volume = this.volume_input.value/100;
+            },
+
+            play(song){
+                if (typeof song.src != "undefined"){
+                    this.current = song;
+                    this.player.src = this.src;
+                }
+
+                this.player.play();
+                this.player.addEventListener('ended',function (){
+                    this.index++;
+                    if (this.index > this.songs.length - 1) {
+                        this.index = 0;
+                    }
+                    this.current = this.songList[this.index];
+                    this.play(this.current);
+                }.bind(this))
+                this.isPlaying = true;
+            }
+        },
+        pause(){
+            this.player.pause();
+            this.isPlaying = false;
+        },
+        
+        next(){
+            this.index++;
+            if (this.index > this.songList.length - 1){
+                this.index = 0;
+            }
+
+            this.current = this.songs[this.index];
+            this.play(this.current);
+
+        },
+
+        prev() {
+            this.index--;
+            if (this.index < 0){
+                this.index = this.songList.length - 1;
+            }
+
+            this.current = this.songs[this.index];
+            this.play(this.current);
+        }
+        
 
 
+    }
+    
     
 
 </script>
@@ -11,16 +83,16 @@
         <section class="progress__section">
             <h5 class="time__progress">1</h5>
             <input type="range" min="0" max="100" step="0.01" value="50%" class="music__progress">
-            <h5 class="music__duration">2:00</h5>
+            <h5 class="music__duration">1.11</h5>
         </section>
         <section class="music__controls">
                 <div class="volume__button">
                     <img src="../../../src/assets/control-icons/volume.png" alt="" >
-                    <input type="range"  class="volume__slider">
+                    <input type="range" max="100" class="volume__slider" v-model="volume_input">
                 </div>
-                <div class="previous__song"><img src="../../../src/assets/control-icons/next.png" alt=""></div>
-                <div class="toggle__pause"><img src="../../../src/assets/control-icons/play.png" alt=""></div>
-                <div class="next__song"><img src="../../../src/assets/control-icons/next.png" alt=""></div>
+                <button class="previous__song" @click="prev" ><img src="../../../src/assets/control-icons/next.png" alt=""></button>
+                <button class="toggle__pause" @click="play" ><img src="../../../src/assets/control-icons/play.png" alt=""></button>
+                <button class="next__song" @click="next" ><img src="../../../src/assets/control-icons/next.png" alt=""></button>
 
         </section>
     </div>
@@ -37,7 +109,7 @@
         align-items: center;
     }
     .music__progress{
-
+        border-radius: 1vh;
         appearance: none;
         max-width: 72vw;
         width: 100%;
@@ -47,6 +119,10 @@
 
     }
         
+    .music__progress:hover{
+        height: .8vh;
+        border-radius: 1vh;
+    }
         
     .music__progress::-webkit-slider-thumb {
         appearance: none;
