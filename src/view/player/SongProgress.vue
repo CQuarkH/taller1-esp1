@@ -1,17 +1,5 @@
+<script>
 
-
-<script setup>
-
-    import {ref} from 'vue'
-
-    const props = defineProps({
-        song: Object,
-        require: true
-    });
-
-    const track = Audio(song.track)
-
-    
 
     
 

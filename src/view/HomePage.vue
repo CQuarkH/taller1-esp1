@@ -12,7 +12,7 @@ import Header from '../components/Header.vue';
   <Header title="Inicio"/>
 
   <main>
-
+    
     <section class="home__explore-container">
       <div class="home__explore-title">
         <p>Descubre nueva música, estilos y artistas.</p>

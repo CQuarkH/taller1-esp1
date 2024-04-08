@@ -1,4 +1,6 @@
 <script setup>
+import PlayCard from './PlayCard.vue';
+
 function changeView(router) {
   router.push({ path: router });
 }
@@ -7,11 +9,7 @@ function changeView(router) {
 <template>
   <nav class="nav">
     <section class="nav__icon">
-      <img
-        class="nav__icon--ufro"
-        src="../assets/icono-ufro-extendido.png"
-        alt=""
-      />
+      <img class="nav__icon--ufro" src="../assets/icono-ufro-extendido.png" alt="" />
     </section>
 
     <section class="nav__option">
@@ -32,7 +30,9 @@ function changeView(router) {
       </router-link>
     </section>
 
-    <section class="nav__play"></section>
+    <section class="nav__play">
+      <PlayCard />
+    </section>
   </nav>
 </template>
 
@@ -46,7 +46,7 @@ function changeView(router) {
   top: 1vh;
 
   display: grid;
-  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
   gap: 1vh;
 
   border-radius: 0.8vw;
@@ -68,7 +68,9 @@ function changeView(router) {
 }
 
 .nav__option {
-  width: 100%;
+  margin-left: 5%;
+  padding-bottom: 5%;
+  width: 90%;
   height: 40vh;
 
   display: flex;
@@ -77,6 +79,8 @@ function changeView(router) {
 
   justify-content: center;
   align-items: center;
+
+  border-bottom: 0.3rem solid rgba(255, 255, 255, 0.76);
 }
 
 .nav__option--icon {
@@ -98,5 +102,14 @@ function changeView(router) {
   width: 12%;
   height: auto;
   margin-right: 10%;
+}
+
+.nav__play {
+  width: 100%;
+  height: 65%;
+
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 </style>
