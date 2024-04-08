@@ -92,6 +92,7 @@ import SongProgress from '../player/SongProgress.vue';
     justify-items: start;
     grid-template-columns: 31.5% 31.5% 30% auto ;
     margin-right: .5vw;
+    margin-bottom: 2vh;
 }
 
 .song__section{

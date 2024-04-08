@@ -29,6 +29,13 @@
 </template>
 
 <style scoped>
+    .music__content{
+        display: grid;
+        height: 55px;
+              
+       
+        
+    }
     .song__name h4{
         word-spacing: 1px;
         justify-items: start;
@@ -52,7 +59,7 @@
         align-items: center;
         grid-template-columns: 30% 30% 30% 10% ;
         justify-items: start;
-        margin-bottom: 1.5vh;
+        
         gap: 1vw;
     }
     .song__name{
@@ -63,16 +70,16 @@
     }
 
     .song__name img{
-        max-width: 50px;
-        width: 100%;
-        height: 50px;
-        border-radius: .8vw;
+        max-width: 40px;
+        align-items: center;
+        
+        border-radius: .5vw;
         aspect-ratio: 1;        
     }
 
     .music__content:hover{
         
-        border-radius: .8vw;
+        border-radius: .5vw;
         background-color: rgba(255, 255, 255, 0.14);
         
         
