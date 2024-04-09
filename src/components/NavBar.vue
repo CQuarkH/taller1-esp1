@@ -31,7 +31,7 @@ function changeView(router) {
     </section>
 
     <section class="nav__play">
-      <PlayCard />
+      
     </section>
   </nav>
 </template>
