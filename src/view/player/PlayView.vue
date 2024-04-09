@@ -3,7 +3,7 @@
   import BannerSong from './BannerSong.vue';
   import songsData from '../../assets/data/songs.json';
   import SongCard  from './SongCard.vue';
-  import SongProgress from '../player/SongProgress.vue';
+  import SongProgress from './SongProgress.vue';
 
   import { ref, onMounted } from 'vue';
   import { useRoute } from "vue-router";

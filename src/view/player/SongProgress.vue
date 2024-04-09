@@ -12,8 +12,8 @@
         },
         data () {
             let index = 0;
-            
-            console.log("ruta1: "+ this.song.songUrl);
+            let durationSong = this.song.duration;
+         
             
             
 
@@ -21,7 +21,7 @@
                 
                 index,
                 progress : "00:00",
-                durationSong : this.song.duration,
+                durationSong,
                 isPlaying: false,
                 player: new Audio(),
                 volume: 0.5
@@ -29,9 +29,7 @@
         },
         
         created(){
-           
-                console.log("ruta: "+this.song.songUrl);
-                this.player.src = this.song.songUrl;
+                
                 this.player.addEventListener('timeupdate', this.refreshTime);
                 this.player.addEventListener('timeupdate', this.refreshProgress);
             
@@ -40,7 +38,20 @@
 
             
         },
+        mounted() {
+
+                this.configureAudioPlayer()
+
+        },
         methods:{
+            configureAudioPlayer() {
+                this.player.src = this.song.songUrl;
+                this.player.addEventListener('timeupdate', this.refreshTime);
+                this.player.addEventListener('timeupdate', this.refreshProgress);
+                
+              
+                this.durationSong = this.song.duration;
+            },
             refreshProgress(){
                 console.log(this.player.paused)
                 console.log(this.player.currentTime);
@@ -146,10 +157,10 @@
 
     <div class="progress__content">
         <section class="progress__section">
-            <h5 class="time__progress">{{ this.progress }}</h5>
+            <h5 class="time__progress">{{  progress }}</h5>
             <input type="range" @input="progressBar" min="0" max="100" step="0.000001" value="0" class="music__progress">
-            
-            <h5 class="music__duration">{{this.durationSong}}</h5>
+            <audio :src="this.ruta" hidden></audio>
+            <h5 class="music__duration">{{durationSong}}</h5>
         </section>
         <section class="music__controls">
                 <div class="volume__button">

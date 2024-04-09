@@ -14,7 +14,7 @@
         "artist": "Sum 41",
         "duration": "3:26",
         "imageUrl": "https://i.discogs.com/xlV0oNVcY5KTHr7_CU-J2ZymUgxet1DervXPCnihr20/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwMjM3/MTktMTMxMjIwNjky/OC5qcGVn.jpeg",
-        "songUrl":"src/assets/songs/Sum 41 - Some Say (Official Music Video).mp3",
+        "songUrl":"/src/assets/songs/Sum 41 - Some Say (Official Music Video).mp3",
         "albumID": 2
     },
     {
@@ -23,7 +23,7 @@
         "artist": "Enrique Iglesias",
         "duration": "3:51",
         "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b2/Euphoria_Album_Cover.jpg",
-        "songUrl":"src/assets/songs/Enrique Iglesias - I Like It (Official Music Video).mp3",
+        "songUrl":"/src/assets/songs/Enrique Iglesias - I Like It (Official Music Video).mp3",
         "albumID": 3
     },
     {
@@ -32,7 +32,7 @@
         "artist": "Shakira",
         "duration": "3:45",
         "imageUrl": "https://i.discogs.com/S1X5AgbXoVe50rRGX0T5c35EfNlKOycB8Sg3co7OjPE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExMTE2/MDU0LTE2MDIyODA2/NzMtMjk1MC5qcGVn.jpeg",
-        "songUrl":"src/assets/songs/Shakira - Me Enamoré (Official Video).mp3",
+        "songUrl":"/src/assets/songs/Shakira - Me Enamoré (Official Video).mp3",
         "albumID": 4
     },
     {
@@ -41,7 +41,7 @@
         "artist": "Shakira",
         "duration": "3:48",
         "imageUrl": "https://i.discogs.com/S1X5AgbXoVe50rRGX0T5c35EfNlKOycB8Sg3co7OjPE/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExMTE2/MDU0LTE2MDIyODA2/NzMtMjk1MC5qcGVn.jpeg",
-        "songUrl":"src/assets/songs/Carlos Vives, Shakira - La Bicicleta.mp3",
+        "songUrl":"/src/assets/songs/Carlos Vives, Shakira - La Bicicleta.mp3",
         "albumID": 4
     }
 ]
