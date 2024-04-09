@@ -20,12 +20,10 @@
         <div class="banner__data">
             <h1 class="banner__title">{{ song.name }}</h1>
             <div class="banner__artist">
-                <h3 class="artist">
-                    {{ song.artist }}
-                    <h3 class="banner__album">{{ song.albumID }}</h3>
-                </h3>
+                <h3 class="artist">{{ song.artist +" - " +song.album}}</h3>
+                
             </div>
-
+ 
         </div>
         
     </section>
@@ -54,7 +52,11 @@
         width: 100%;
         aspect-ratio: 1;
     }
-
+    .artist{
+        display: flex;
+        align-items: center;
+       
+    }
 
     .banner__title{
         font-size: clamp(5px, 40px, 3vw);
@@ -66,13 +68,10 @@
 
     .banner__artist{
         display: flex;
-        gap: 1vw;
+        
         font-size: clamp(5px, 15px, 20px);
     }
-    .banner__album{
-        color: #8A67B7;
-        text-decoration: none;
-    }
+    
 
     .banner__artist h3{
         text-wrap: wrap;

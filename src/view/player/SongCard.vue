@@ -18,7 +18,7 @@
         <div class="music__card">
             <div class="song__name"><img :src="song.imageUrl" /> <h4>{{ song.name }}  </h4></div>
             <h4 class="song__artista">{{song.artist}}</h4>
-            <h4 class="song__album">{{song.albumID}} </h4>
+            <h4 class="song__album">{{song.album}} </h4>
             <h4 class="song_duracion">{{song.duration}}</h4>
         </div>
     </div>
@@ -46,7 +46,7 @@
 
     .song__artista, .song__album{
         
-        
+        justify-content: left;
         justify-items: start;
         text-align: justify;
         overflow: hidden;

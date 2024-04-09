@@ -29,7 +29,7 @@
         },
         
         created(){
-                
+                this.player.src = this.song.songUrl;
                 this.player.addEventListener('timeupdate', this.refreshTime);
                 this.player.addEventListener('timeupdate', this.refreshProgress);
             
@@ -38,20 +38,9 @@
 
             
         },
-        mounted() {
-
-                this.configureAudioPlayer()
-
-        },
+        
         methods:{
-            configureAudioPlayer() {
-                this.player.src = this.song.songUrl;
-                this.player.addEventListener('timeupdate', this.refreshTime);
-                this.player.addEventListener('timeupdate', this.refreshProgress);
-                
               
-                this.durationSong = this.song.duration;
-            },
             refreshProgress(){
                 console.log(this.player.paused)
                 console.log(this.player.currentTime);
@@ -181,7 +170,10 @@
 
 <style scoped>
 
-
+    button{
+        background-color: transparent;
+        border:0;
+    }
     .progress__section{
         display: flex;
         gap: 1vw;
