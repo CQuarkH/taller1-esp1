@@ -7,6 +7,7 @@ import artistsData from '../../assets/data/artists.json';
 import albumsData from '../../assets/data/albums.json';
 import songsData from '../../assets/data/songs.json';
 import SongCard from "../player/SongCard.vue";
+import router from "../../router/index.js";
 
 const artist = ref({});
 const filteredAlbums = ref({});
@@ -23,6 +24,9 @@ onMounted(() => {
   filteredAlbums.value = albumsData.filter(album => album.artistID === artist.value.id);
   filteredSongs.value = songsData.filter(song => song.artist === artist.value.name);
 });
+const goToPlay = (songId) => {
+  router.push({ name: 'PlayView', params: { songId } });
+};
 
 </script>
 
@@ -45,7 +49,7 @@ onMounted(() => {
       <div class="section">
         <h2 class="section-title">Canciones más escuchadas</h2>
         <div id="list-songs">
-          <SongCard v-for="song in filteredSongs" :key="song.id" :song="song"/>
+          <SongCard v-for="song in filteredSongs" :key="song.id" :song="song" @click="goToPlay(song.id)"/>
         </div>
       </div>
 
