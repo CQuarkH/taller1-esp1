@@ -1,10 +1,12 @@
 <script setup>
 import NavBar from '../../components/NavBar.vue';
 import BannerSong from './BannerSong.vue';
-import songs from '../../assets/data/songs.json';
+import songsData from '../../assets/data/songs.json';
 import SongCard  from './SongCard.vue';
 import SongProgress from '../player/SongProgress.vue';
 
+import { ref, onMounted } from 'vue';
+import { useRoute } from "vue-router";
 
 
 </script>

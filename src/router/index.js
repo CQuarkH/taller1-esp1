@@ -43,6 +43,11 @@ const routes = [
     path: '/player/play',
     name: 'PlayView',
     component: PlayView
+  },
+  {
+    path: '/play/:songId',
+    name: 'PlayView',
+    component: PlayView
   }
 ];
 

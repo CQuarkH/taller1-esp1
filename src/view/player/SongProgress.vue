@@ -12,28 +12,65 @@
             }
         },
         data () {
+            let index = 0;
+            let track = new Audio();
             
+            
+
             return {
-                
-                title : songs[0].name,
-                index : 0,
+                index,
+                progress : "00:00",
+                durationSong : songs[0].duration,
                 isPlaying: false,
-                
                 player: new Audio(),
                 volume: 0.5
             }
         },
         
         created(){
+            if(!this.player.src){
+
+                this.player.src = songs[this.index].songUrl;
+                this.player.addEventListener('timeupdate', this.refreshTime);
+                this.player.addEventListener('timeupdate', this.refreshProgress);
+            }
+    
             
-            this.player.src = songs[this.index].songUrl;
+
             
         },
         methods:{
+            refreshProgress(){
+                console.log(this.player.paused)
+                console.log(this.player.currentTime);
+                let progress = this.player.currentTime
+                
+                
+                let linea_temporal = document.querySelector('.music__progress');
+                let seekPosition = progress * (100 / this.player.duration);
+                
+                linea_temporal.value = seekPosition;
+            
+            },
+            refreshTime(){
+                let segundos = this.player.currentTime;
+                let minutos = Math.floor(segundos / 60);
+                let segundosRestantes = Math.floor(segundos % 60);
+
+                
+                minutos = (minutos < 10) ? "0" + minutos : minutos;
+                segundosRestantes = (segundosRestantes < 10) ? "0" + segundosRestantes : segundosRestantes;
+                
+                
+                this.progress = minutos + ":" + segundosRestantes;
+                console.log("time: "+ this.progress);
+                
+            
+            },    
             setVolume(){
                 let volumeButton = document.querySelector('.volume__slider');
-                this.player.volume = volumeButton.value / 100;
-                console.log(this.play.volume)
+                this.player.volume = (volumeButton.value / 100);
+                console.log(this.player.volume)
             },
 
             play(song){
@@ -53,7 +90,7 @@
                     this.play(this.current);
                 })
                 
-                if (!this.isPlaying){
+                if (!this.isPlaying || this.player.paused){
 
                     this.player.play();
                     this.isPlaying = true;
@@ -63,8 +100,7 @@
                     this.isPlaying = false;
 
                 }
-            }
-        },
+            },
         
         next(){
             this.index++;
@@ -85,7 +121,17 @@
 
             this.current = this.songs[this.index];
             this.play(this.current);
+        },
+
+        progressBar(){
+            let linea_temporal = document.querySelector('.music__progress');
+            let seekto = this.player.duration * (linea_temporal.value / 100);
+            console.log("seekto: "+seekto)
+            this.player.currentTime = seekto;
+            
+           
         }
+    }
         
 
 
@@ -99,10 +145,10 @@
 
     <div class="progress__content">
         <section class="progress__section">
-            <h5 class="time__progress">1</h5>
-            <input type="range" min="0" max="100" step="0.01" value="50%" class="music__progress">
+            <h5 class="time__progress">{{ this.progress }}</h5>
+            <input type="range" @input="progressBar" min="0" max="100" step="0.000001" value="0" class="music__progress">
             
-            <h5 class="music__duration">1.11</h5>
+            <h5 class="music__duration">{{this.durationSong}}</h5>
         </section>
         <section class="music__controls">
                 <div class="volume__button">
@@ -114,7 +160,6 @@
                 <button class="toggle__pause" @click="play" v-if="isPlaying" ><img src="../../../src/assets/control-icons/pause.png" alt=""></button>
 
                 <button class="next__song" @click="next" ><img src="../../../src/assets/control-icons/next.png" alt=""></button>
-                <h1>{{ this.title }}</h1>
 
         </section>
     </div>

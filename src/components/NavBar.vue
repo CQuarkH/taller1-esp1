@@ -21,7 +21,7 @@ function changeView(router) {
         <img class="icon" src="../assets/icono-brujula.png" />Explorar
       </router-link>
 
-      <router-link to="/" class="nav__option--icon">
+      <router-link to="/player/play" class="nav__option--icon">
         <img class="icon" src="../assets/icono-libreria.png" />Reproducción
       </router-link>
 
