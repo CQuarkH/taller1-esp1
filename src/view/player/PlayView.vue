@@ -17,6 +17,7 @@
     console.log(songId);
     song.value = songsData.find(cancion => cancion.id === songId);
 
+    console.log(song.value )
     if(!song.value){
       console.error(`Cancion con Id ${songId} no encontrada.`);
       return;

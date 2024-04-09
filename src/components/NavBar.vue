@@ -21,10 +21,6 @@ function changeView(router) {
         <img class="icon" src="../assets/icono-brujula.png" />Explorar
       </router-link>
 
-      <router-link to="/player/play" class="nav__option--icon">
-        <img class="icon" src="../assets/icono-libreria.png" />Reproducción
-      </router-link>
-
       <router-link to="/pay/promotion" class="nav__option--icon">
         <img class="icon" src="../assets/icono-premium.png" />Premium
       </router-link>
@@ -79,8 +75,6 @@ function changeView(router) {
 
   justify-content: center;
   align-items: center;
-
-  border-bottom: 0.3rem solid rgba(255, 255, 255, 0.76);
 }
 
 .nav__option--icon {
