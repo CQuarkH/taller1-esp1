@@ -3,24 +3,25 @@
     import { defineComponent } from 'vue';
     
     export default defineComponent({
-        
         name: "SongProgress",
         props: {
             song: {
-                type: songs,
+                type: Object,
                 required: true
             }
         },
         data () {
             let index = 0;
-            let track = new Audio();
+            
+            console.log("ruta1: "+ this.song.songUrl);
             
             
 
             return {
+                
                 index,
                 progress : "00:00",
-                durationSong : songs[0].duration,
+                durationSong : this.song.duration,
                 isPlaying: false,
                 player: new Audio(),
                 volume: 0.5
@@ -28,12 +29,12 @@
         },
         
         created(){
-            if(!this.player.src){
-
-                this.player.src = songs[this.index].songUrl;
+           
+                console.log("ruta: "+this.song.songUrl);
+                this.player.src = this.song.songUrl;
                 this.player.addEventListener('timeupdate', this.refreshTime);
                 this.player.addEventListener('timeupdate', this.refreshProgress);
-            }
+            
     
             
 

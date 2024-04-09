@@ -1,24 +1,40 @@
 <script setup>
-import NavBar from '../../components/NavBar.vue';
-import BannerSong from './BannerSong.vue';
-import songsData from '../../assets/data/songs.json';
-import SongCard  from './SongCard.vue';
-import SongProgress from '../player/SongProgress.vue';
+  import NavBar from '../../components/NavBar.vue';
+  import BannerSong from './BannerSong.vue';
+  import songsData from '../../assets/data/songs.json';
+  import SongCard  from './SongCard.vue';
+  import SongProgress from '../player/SongProgress.vue';
 
-import { ref, onMounted } from 'vue';
-import { useRoute } from "vue-router";
+  import { ref, onMounted } from 'vue';
+  import { useRoute } from "vue-router";
 
+  const route = useRoute();
+  const song = ref({});
+  const filteredSongs = ref({});
+
+  onMounted(() => {
+    const songId = parseInt(route.params.songId);
+    console.log(songId);
+    song.value = songsData.find(cancion => cancion.id === songId);
+
+    if(!song.value){
+      console.error(`Cancion con Id ${songId} no encontrada.`);
+      return;
+    }
+    filteredSongs.value = songsData.filter(cancion => cancion.id === songId)
+  
+  })
 
 </script>
 
 
 <template>
   
-  <NavBar />
+  <NavBar/>
   <main>
-    <img src="../../assets/img_banner.jpeg" class="img__fondo" >
+    <img :src="song.imageUrl" class="img__fondo" >
     <div class="content">
-      <BannerSong />
+      <BannerSong :song="song"/>
       <div class="nav__menu">
         <h4>Cancion</h4>
         <h4>Artista</h4>
@@ -27,15 +43,15 @@ import { useRoute } from "vue-router";
       </div>
       <section class="song__section">
 
-        <SongCard />
-        <SongCard />
+        <SongCard v-for="song in filteredSongs" :key="song.id" :song="song"/>
+        
         
 
         
 
       </section>
       
-      <SongProgress />
+      <SongProgress :song="song"/>
      
 
       

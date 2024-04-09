@@ -16,10 +16,10 @@
 <template>
     <div class="music__content">
         <div class="music__card">
-            <div class="song__name"><img src ="../../assets/img_banner.jpeg" alt="song.name" /><h4>nombre nombre  </h4></div>
-            <h4 class="song__artista">artista artista</h4>
-            <h4 class="song__album">album </h4>
-            <h4 class="song_duracion">2:00</h4>
+            <div class="song__name"><img :src="song.imageUrl" /> <h4>{{ song.name }}  </h4></div>
+            <h4 class="song__artista">{{song.artist}}</h4>
+            <h4 class="song__album">{{song.albumID}} </h4>
+            <h4 class="song_duracion">{{song.duration}}</h4>
         </div>
     </div>
         

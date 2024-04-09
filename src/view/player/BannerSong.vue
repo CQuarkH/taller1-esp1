@@ -16,12 +16,13 @@
 
 <template>
     <section class="banner__section">
-        <img src="../../assets/img_banner.jpeg" alt="">
+        <img :src="song.imageUrl" alt="">
         <div class="banner__data">
-            <h1 class="banner__title">Minnie :)</h1>
+            <h1 class="banner__title">{{ song.name }}</h1>
             <div class="banner__artist">
-                <h3 class="artist">Kidd Voodoo
-                <a href="google.com" class="banner__album">Los Rompecorazones, Vol. 2</a>
+                <h3 class="artist">
+                    {{ song.artist }}
+                    <h3 class="banner__album">{{ song.albumID }}</h3>
                 </h3>
             </div>
 
