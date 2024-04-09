@@ -1,22 +1,41 @@
 <script setup>
-import NavBar from '../../components/NavBar.vue';
-import BannerSong from './BannerSong.vue';
-import songs from '../../assets/data/songs.json';
-import SongCard  from './SongCard.vue';
-import SongProgress from '../player/SongProgress.vue';
+  import NavBar from '../../components/NavBar.vue';
+  import BannerSong from './BannerSong.vue';
+  import songsData from '../../assets/data/songs.json';
+  import SongCard  from './SongCard.vue';
+  import SongProgress from './SongProgress.vue';
 
+  import { ref, onBeforeMount } from 'vue';
+  import { useRoute } from "vue-router";
 
+  const route = useRoute();
+  const song = ref({});
+  const filteredSongs = ref({});
+
+  onBeforeMount(() => {
+    const songId = parseInt(route.params.songId);
+    console.log(songId);
+    song.value = songsData.find(cancion => cancion.id === songId);
+
+    console.log(song.value )
+    if(!song.value){
+      console.error(`Cancion con Id ${songId} no encontrada.`);
+      return;
+    }
+    filteredSongs.value = songsData.filter(cancion => cancion.id === songId)
+  
+  })
 
 </script>
 
 
 <template>
   
-  <NavBar />
+  <NavBar/>
   <main>
-    <img src="../../assets/img_banner.jpeg" class="img__fondo" >
+    <img :src="song.imageUrl" class="img__fondo" >
     <div class="content">
-      <BannerSong />
+      <BannerSong :song="song"/>
       <div class="nav__menu">
         <h4>Cancion</h4>
         <h4>Artista</h4>
@@ -25,15 +44,15 @@ import SongProgress from '../player/SongProgress.vue';
       </div>
       <section class="song__section">
 
-        <SongCard />
-        <SongCard />
+        <SongCard v-for="song in filteredSongs" :key="song.id" :song="song"/>
+        
         
 
         
 
       </section>
       
-      <SongProgress />
+      <SongProgress :song="song"/>
      
 
       
@@ -92,6 +111,7 @@ import SongProgress from '../player/SongProgress.vue';
     justify-items: start;
     grid-template-columns: 31.5% 31.5% 30% auto ;
     margin-right: .5vw;
+    margin-bottom: 2vh;
 }
 
 .song__section{

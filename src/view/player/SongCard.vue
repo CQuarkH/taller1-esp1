@@ -16,10 +16,10 @@
 <template>
     <div class="music__content">
         <div class="music__card">
-            <div class="song__name"><img src ="../../assets/img_banner.jpeg" alt="song.name" /><h4>nombre nombre  </h4></div>
-            <h4 class="song__artista">artista artista</h4>
-            <h4 class="song__album">album </h4>
-            <h4 class="song_duracion">2:00</h4>
+            <div class="song__name"><img :src="song.imageUrl" /> <h4>{{ song.name }}  </h4></div>
+            <h4 class="song__artista">{{song.artist}}</h4>
+            <h4 class="song__album">{{song.album}} </h4>
+            <h4 class="song_duracion">{{song.duration}}</h4>
         </div>
     </div>
         
@@ -29,6 +29,13 @@
 </template>
 
 <style scoped>
+    .music__content{
+        display: grid;
+        height: 55px;
+              
+       
+        
+    }
     .song__name h4{
         word-spacing: 1px;
         justify-items: start;
@@ -39,7 +46,7 @@
 
     .song__artista, .song__album{
         
-        
+        justify-content: left;
         justify-items: start;
         text-align: justify;
         overflow: hidden;
@@ -52,7 +59,7 @@
         align-items: center;
         grid-template-columns: 30% 30% 30% 10% ;
         justify-items: start;
-        margin-bottom: 1.5vh;
+        
         gap: 1vw;
     }
     .song__name{
@@ -63,16 +70,16 @@
     }
 
     .song__name img{
-        max-width: 50px;
-        width: 100%;
-        height: 50px;
-        border-radius: .8vw;
+        max-width: 40px;
+        align-items: center;
+        
+        border-radius: .5vw;
         aspect-ratio: 1;        
     }
 
     .music__content:hover{
         
-        border-radius: .8vw;
+        border-radius: .5vw;
         background-color: rgba(255, 255, 255, 0.14);
         
         

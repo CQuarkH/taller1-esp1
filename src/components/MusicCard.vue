@@ -1,5 +1,6 @@
 <script>
 import { defineComponent } from 'vue';
+import PlayView from '../view/player/PlayView.vue'
 
 export default defineComponent({
   name: 'MusicCard',
@@ -8,6 +9,9 @@ export default defineComponent({
       type: Object,
       required: true
     }
+  },
+  components:{
+    PlayView,
   }
 });
 
@@ -16,19 +20,22 @@ export default defineComponent({
 
 
 <template>
-  <div class="music__card">
-    <img :src="song.imageUrl" />
-    <div class="music__card-content">
-      <h4> {{ song.name }}</h4>
-      <p> {{ song.artist }}</p>
-    </div>
+  <router-link  style="text-decoration: none; color: inherit;" :to="{ name: 'PlayView', params: { songId: song.id }} ">
+    <div class="music__card">
+      <img :src="song.imageUrl" />
+      <div class="music__card-content">
+        <h4> {{ song.name }}</h4>
+        <p> {{ song.artist }}</p>
+      </div>
 
-  </div>
+    </div>
+  </router-link>
 
 </template>
 
 
 <style scoped>
+
 .music__card {
   display: flex;
   width: 210px;

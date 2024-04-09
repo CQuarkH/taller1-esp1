@@ -2,25 +2,29 @@
     {
         "id": 1,
         "name": "Beyoncé",
-        "imageUrl": "https://www.rockandpop.cl/wp-content/uploads/2023/11/Beyonce-1-768x432.webp",
+        "profile": "https://images.squarespace-cdn.com/content/v1/6145a7b457c18a3bdc94fef6/83ac0d9e-e374-4ae8-a533-c28c237f025a/Beyonc%C3%A9.+PH%3A+Carlijn+Jacobs+.jpg",
+        "wallpaper": "https://4kwallpapers.com/images/walls/thumbs_3t/12398.jpg",
         "description": "Beyoncé Giselle Knowles-Carter, conocida simplemente como Beyoncé, es una cantante, compositora, actriz y productora discográfica estadounidense. Nacida el 4 de septiembre de 1981 en Houston, Texas, Beyoncé se ha establecido como una de las artistas más influyentes y exitosas de la música contemporánea.Con una carrera que abarca más de dos décadas, Beyoncé ha dejado una huella indeleble en la industria de la música con su poderosa voz, su presencia escénica cautivadora y su innovador estilo musical. Desde sus primeros días como miembro de Destiny's Child hasta su exitosa carrera en solitario, Beyoncé ha acumulado innumerables éxitos, premios y récords en su haber."
     },
     {
         "id": 2,
         "name": "Sum 41",
-        "imageUrl": "https://cloudfront-eu-central-1.images.arcpublishing.com/prisaradiolos40/FMHFHSVV4VDLFANYO5UVRS5ESM.jpg",
+        "profile": "https://i.scdn.co/image/e1e512a9d082938cdcfd66d7e8b1f804fa840b9e",
+        "wallpaper": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9b5116b3-5225-451c-94c7-aa4d021657e9/dchscwv-aeac83bc-4ee7-4ece-acae-f646e530bacd.png/v1/fill/w_1600,h_972,q_80,strp/sum_41_wallpaper_by_m3g4sh4rk_dchscwv-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTcyIiwicGF0aCI6IlwvZlwvOWI1MTE2YjMtNTIyNS00NTFjLTk0YzctYWE0ZDAyMTY1N2U5XC9kY2hzY3d2LWFlYWM4M2JjLTRlZTctNGVjZS1hY2FlLWY2NDZlNTMwYmFjZC5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.7uXx7JbmZu7PT5EEjC7jM_WYkt4uiTdOj-l3k-QdPhQ",
         "description": "Sum 41 es una banda de rock canadiense formada en 1996 en Ajax, Ontario. Conocidos por su estilo energético y su fusión de punk rock y metal, Sum 41 ha sido una fuerza dominante en la escena musical desde su debut. La banda alcanzó la fama con su álbum de estudio debut, 'All Killer No Filler', que incluía éxitos como 'Fat Lip' y 'In Too Deep'. A lo largo de los años, Sum 41 ha mantenido su relevancia con lanzamientos posteriores que muestran su versatilidad musical y su compromiso con la autenticidad. Con una base de fans leales en todo el mundo, Sum 41 continúa siendo una de las bandas más influyentes y respetadas en el panorama del rock contemporáneo."
     },
     {
         "id": 3,
         "name": "Enrique Iglesias",
-        "imageUrl": "https://imagenes.elpais.com/resizer/vjeqtyLzLffLVqGZ6vWNOWDdvc0=/1960x1470/cloudfront-eu-central-1.images.arcpublishing.com/prisa/NHINSMKNZFCZVIMHJR2W77CX24.jpg",
+        "profile": "https://cdn.smehost.net/2020sonymusiccouk-ukprod/wp-content/uploads/2019/10/90bd352cdd5ad1f13e55bc960a92daa1.jpg",
+        "wallpaper": "https://images.alphacoders.com/550/550205.jpg",
         "description": "Enrique Iglesias es un cantante, compositor, actor y productor discográfico español. Nacido el 8 de mayo de 1975 en Madrid, España, Iglesias es uno de los artistas latinos más vendidos de todos los tiempos. Conocido por sus melodías pegajosas, letras románticas y carismática presencia en el escenario, Iglesias ha cautivado a audiencias de todo el mundo con su mezcla de pop, música latina y dance. Con numerosos éxitos en las listas de música y álbumes multiplatino, Iglesias ha consolidado su estatus como una superestrella global e icono en la industria musical."
     },
     {
         "id": 4,
         "name": "Shakira",
-        "imageUrl": "https://www.billboard.com/wp-content/uploads/2024/02/Shakira-cr-Nicolas-Gerardin-press-2024-billboard-1548.jpg",
+        "profile": "https://content20.lecturas.com/medio/2023/10/10/shakira_7bb4a70e_231010121932_800x800.jpg",
+        "wallpaper": "https://4kwallpapers.com/images/walls/thumbs_3t/9262.jpg",
         "description": "Shakira Isabel Mebarak Ripoll, conocida simplemente como Shakira, es una cantante, compositora, bailarina, empresaria, productora discográfica y modelo colombiana. Nacida el 2 de febrero de 1977 en Barranquilla, Colombia, Shakira ha vendido más de 75 millones de discos en todo el mundo, convirtiéndola en una de las artistas musicales más exitosas de todos los tiempos. Conocida por su distintiva voz, sus letras poéticas y su habilidad para fusionar diferentes géneros musicales, Shakira ha dejado una marca indeleble en la industria musical internacional."
     }
 ]

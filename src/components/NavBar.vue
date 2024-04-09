@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import PlayCard from './PlayCard.vue';
+
+function changeView(router) {
+  router.push({ path: router });
+}
+</script>
 
 <template>
   <nav class="nav">
@@ -7,24 +13,22 @@
     </section>
 
     <section class="nav__option">
-      <a href="" class="nav__option--icon">
+      <router-link to="/" class="nav__option--icon">
         <img class="icon" src="../assets/icono-casa.png" />Inicio
-      </a>
+      </router-link>
 
-      <a href="" class="nav__option--icon">
+      <router-link to="/searchresults" class="nav__option--icon">
         <img class="icon" src="../assets/icono-brujula.png" />Explorar
-      </a>
+      </router-link>
 
-      <a href="" class="nav__option--icon">
-        <img class="icon" src="../assets/icono-libreria.png" />Biblioteca
-      </a>
-
-      <a href="" class="nav__option--icon">
+      <router-link to="/pay/promotion" class="nav__option--icon">
         <img class="icon" src="../assets/icono-premium.png" />Premium
-      </a>
+      </router-link>
     </section>
 
-    <section class="nav__play"></section>
+    <section class="nav__play">
+      
+    </section>
   </nav>
 </template>
 
@@ -38,7 +42,7 @@
   top: 1vh;
 
   display: grid;
-  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
   gap: 1vh;
 
   border-radius: 0.8vw;
@@ -60,7 +64,9 @@
 }
 
 .nav__option {
-  width: 100%;
+  margin-left: 5%;
+  padding-bottom: 5%;
+  width: 90%;
   height: 40vh;
 
   display: flex;
@@ -90,5 +96,14 @@
   width: 12%;
   height: auto;
   margin-right: 10%;
+}
+
+.nav__play {
+  width: 100%;
+  height: 65%;
+
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 </style>
