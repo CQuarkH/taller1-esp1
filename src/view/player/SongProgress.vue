@@ -12,6 +12,7 @@
             }
         },
         data () {
+            
             return {
                 
                 title : songs[0].name,
@@ -30,12 +31,12 @@
         },
         methods:{
             setVolume(){
-                name : 'volume__button';
-                this.player.volume = this.volume_input.value/100;
+                let volumeButton = document.querySelector('.volume__slider');
+                this.player.volume = volumeButton.value / 100;
+                console.log(this.play.volume)
             },
 
             play(song){
-               
 
                 
                 if (typeof song.src != "undefined"){
@@ -106,7 +107,7 @@
         <section class="music__controls">
                 <div class="volume__button">
                     <img src="../../../src/assets/control-icons/volume.png" alt="" >
-                    <input type="range" max="100" class="volume__slider" v-model="volume_input">
+                    <input type="range" @input="setVolume" max="100" class="volume__slider" v-model="volume_input">
                 </div>
                 <button class="previous__song" @click="prev" ><img src="../../../src/assets/control-icons/next.png" alt=""></button>
                 <button class="toggle__pause" @click="play" v-if="!isPlaying" ><img src="../../../src/assets/control-icons/play.png" alt=""></button>
