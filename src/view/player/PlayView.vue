@@ -5,14 +5,14 @@
   import SongCard  from './SongCard.vue';
   import SongProgress from './SongProgress.vue';
 
-  import { ref, onMounted } from 'vue';
+  import { ref, onBeforeMount } from 'vue';
   import { useRoute } from "vue-router";
 
   const route = useRoute();
   const song = ref({});
   const filteredSongs = ref({});
 
-  onMounted(() => {
+  onBeforeMount(() => {
     const songId = parseInt(route.params.songId);
     console.log(songId);
     song.value = songsData.find(cancion => cancion.id === songId);
