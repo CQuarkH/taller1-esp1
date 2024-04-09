@@ -6,7 +6,7 @@ import { useRoute } from "vue-router";
 import artistsData from '../../assets/data/artists.json';
 import albumsData from '../../assets/data/albums.json';
 import songsData from '../../assets/data/songs.json';
-import MusicCard from "../../components/MusicCard.vue";
+import SongCard from "../player/SongCard.vue";
 
 const artist = ref({});
 const filteredAlbums = ref({});
@@ -45,7 +45,7 @@ onMounted(() => {
       <div class="section">
         <h2 class="section-title">Canciones más escuchadas</h2>
         <div id="list-songs">
-          <MusicCard v-for="song in filteredSongs" :key="song.id" :song="song"></MusicCard>
+          <SongCard v-for="song in filteredSongs" :key="song.id" :song="song"/>
         </div>
       </div>
 
@@ -158,11 +158,7 @@ button {
 }
 
 #list-songs {
-  display: grid;
-  width: 100%;
-  height: 100%;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  overflow-y: auto;
 }
 
 #list-albums {
