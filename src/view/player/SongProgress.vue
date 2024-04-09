@@ -1,23 +1,31 @@
 <script>
     import songs from '../../assets/data/songs.json'
-
-    export default{
+    import { defineComponent } from 'vue';
+    
+    export default defineComponent({
         
-        name: 'progress__content',
+        name: "SongProgress",
+        props: {
+            song: {
+                type: songs,
+                required: true
+            }
+        },
         data () {
             return {
-                current: [],
+                
+                title : songs[0].name,
                 index : 0,
                 isPlaying: false,
-                songList : songs,
+                
                 player: new Audio(),
                 volume: 0.5
             }
         },
-        songList : songs,
+        
         created(){
-            this.current = this.songList[this.index]
-            this.player.src = this.current.src;
+            
+            this.player.src = songs[this.index].songUrl;
             
         },
         methods:{
@@ -27,8 +35,8 @@
             },
 
             play(song){
-                this.player.src = "/src/assets/songs/Pray You Catch Me.mp3";
-                this.current = this.songList[this.index]
+               
+
                 
                 if (typeof song.src != "undefined"){
                     this.current = song;
@@ -45,6 +53,7 @@
                 })
                 
                 if (!this.isPlaying){
+
                     this.player.play();
                     this.isPlaying = true;
 
@@ -54,10 +63,6 @@
 
                 }
             }
-        },
-        pause(){
-            this.player.pause();
-            this.isPlaying = false;
         },
         
         next(){
@@ -83,7 +88,7 @@
         
 
 
-    }
+    })
     
     
 
@@ -104,8 +109,11 @@
                     <input type="range" max="100" class="volume__slider" v-model="volume_input">
                 </div>
                 <button class="previous__song" @click="prev" ><img src="../../../src/assets/control-icons/next.png" alt=""></button>
-                <button class="toggle__pause" @click="play" ><img src="../../../src/assets/control-icons/play.png" alt=""></button>
+                <button class="toggle__pause" @click="play" v-if="!isPlaying" ><img src="../../../src/assets/control-icons/play.png" alt=""></button>
+                <button class="toggle__pause" @click="play" v-if="isPlaying" ><img src="../../../src/assets/control-icons/pause.png" alt=""></button>
+
                 <button class="next__song" @click="next" ><img src="../../../src/assets/control-icons/next.png" alt=""></button>
+                <h1>{{ this.title }}</h1>
 
         </section>
     </div>
@@ -153,7 +161,7 @@
 
     .volume__button{
         gap: 1vw;
-        margin-right: 19vw;
+        margin-right: 17.3vw;
         display: flex;
         align-content: center;
         align-items: center;
